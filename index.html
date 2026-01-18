@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>NASA — Exploración, Ciencia y Futuro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TIPOGRAFÍA -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- ICONOS PROFESIONALES -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- CSS -->
+<link rel="stylesheet" href="../css/inicio.css">
+
+<!-- JS -->
+<script src="../js/inicio.js"></script>
+
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="header-inner">
+
+    <div class="header-left">
+  <button class="menu-btn" id="menuBtn">☰</button>
+
+  <div class="search-box">
+    <i class="fas fa-magnifying-glass search-icon"></i>
+    <input type="text" placeholder="Buscar en NASA">
+  </div>
+</div>
+
+
+     <a href="inicio.html" class="brand-logo-link">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/NASA_logo.svg" class="brand-logo" alt="NASA">
+</a>
+
+
+    <div class="header-right">
+  <nav class="main-nav">
+    <a href="missiones.html">Misiones</a>
+    
+    <a href="tecnologia.html">Tecnología</a>
+    <a href="#">NASA TV</a>
+    <a href="#">Noticias</a>
+
+  
+
+  <!-- BOTÓN LOGIN / REGISTRO -->
+  <a href="logininiciodesesion.html" class="login-btn">
+    <i class="fas fa-user-astronaut"></i>
+    Acceder
+  </a>
+</nav>
+
+  </nav>
+
+ 
+</header>
+
+<!-- ================= MENU LATERAL ================= -->
+<aside class="side-menu" id="sideMenu">
+  <button class="close-btn" id="closeMenu">✕</button>
+  <nav class="side-nav">
+    <a href="#">Inicio</a>
+    <a href="#">Misiones</a>
+    <a href="#">Ciencia</a>
+    <a href="#">Tecnología</a>
+    <a href="#">NASA TV</a>
+    <a href="#">Noticias</a>
+  </nav>
+</aside>
+
+<!-- ================= MAIN ================= -->
+<main>
+
+<!-- HERO -->
+<section class="hero">
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="../img/0_Galaxy_Spiral_Galaxy_3840x2160.mp4" type="video/mp4">
+    Tu navegador no soporta video HTML5
+  </video>
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <h1>Explorando el universo<br>con ciencia e innovación</h1>
+    <p>
+      La NASA lidera la exploración espacial, la investigación científica
+      y el desarrollo tecnológico para el beneficio de la humanidad.
+    </p>
+    <a href="#missions" class="cta-primary">Explorar</a>
+  </div>
+</section>
+
+<!-- NEWS FEATURED -->
+<section class="news-featured">
+  <h2>Noticias destacadas</h2>
+
+  <div class="news-container">
+    <article class="news-card">
+      <img src="../img/Noticia1.webp">
+      <span class="news-tag">Exploración orbital</span>
+      <h3>Nueva observación de la Estación Espacial Internacional</h3>
+    </article>
+
+    <article class="news-card">
+      <img src="../img/Noticia2.jpg">
+      <span class="news-tag">Programa Artemis</span>
+      <h3>La NASA avanza en el regreso humano a la Luna</h3>
+    </article>
+
+    <article class="news-card">
+      <img src="../img/Noticia3.jpg">
+      <span class="news-tag">Astrobiología</span>
+      <h3>Moléculas orgánicas detectadas en una nube interestelar</h3>
+    </article>
+  </div>
+</section>
+
+<!-- FEATURE STORY -->
+<section class="feature-story-bg">
+
+  <!-- IMAGEN DE FONDO -->
+  <img src="../img/webb-tarantula-neb.webp" alt="Fondo Universo" class="feature-bg-img" />
+
+  <!-- CAPA OSCURA -->
+  <div class="feature-overlay"></div>
+
+  <!-- CONTENIDO -->
+  <div class="feature-content">
+    <h2>ESCAPADE captura sus primeras imágenes rumbo a Marte</h2>
+    <p>
+      La misión ESCAPADE representa un nuevo enfoque para estudiar la interacción
+      entre el viento solar y la atmósfera marciana mediante sondas gemelas.
+    </p>
+    <a href="#" class="cta-primary">Leer análisis completo →</a>
+  </div>
+
+</section>
+
+
+<!-- MISSIONS -->
+<section class="missions" id="missions">
+  <header class="section-header">
+    <h2>Misiones de la NASA</h2>
+    <a href="#">Explorar todas →</a>
+  </header>
+
+  <div class="missions-grid">
+    <div class="mission-card">
+      <img src="../img/Mision1.webp">
+      <h3>Exploración Lunar</h3>
+      <p>Presencia sostenible más allá de la Tierra.</p>
+    </div>
+
+    <div class="mission-card">
+      <img src="../img/Mision2.webp">
+      <h3>Naves Espaciales</h3>
+      <p>Tecnología avanzada para el espacio profundo.</p>
+    </div>
+
+    <div class="mission-card">
+      <img src="../img/Mision3.jpg">
+      <h3>Comunicación Espacial</h3>
+      <p>Conectando misiones a millones de kilómetros.</p>
+    </div>
+  </div>
+</section>
+
+<!-- IMAGE OF DAY -->
+<section class="image-day">
+  <div class="image-day-info">
+    <span>Imagen del día</span>
+    <h2>Nube molecular Sagitario B2</h2>
+    <p>
+      Una de las regiones de formación estelar más complejas y activas
+      del centro galáctico.
+    </p>
+  </div>
+
+  <div class="image-day-visual">
+    <img src="../img/imagendeldia.webp">
+  </div>
+</section>
+
+<!-- NOTIFICATION -->
+<section class="nasa-subscribe">
+
+  <!-- IMAGEN DE FONDO DESDE HTML -->
+  <img src="../IMG/ngc602.jpg" alt="Fondo Universo" class="nasa-bg-img" />
+
+  <!-- CAPA OSCURA -->
+  <div class="nasa-overlay"></div>
+
+  <!-- CONTENIDO -->
+  <div class="nasa-content">
+    <h1>
+      Explora el Universo<br />
+      desde tu Bandeja<br />
+      de notificaciones
+    </h1>
+
+    <p class="description">
+      Manténgase actualizado con las últimas noticias de la NASA,
+      desde la Tierra hasta la Luna, el Sistema Solar y más allá.
+    </p>
+
+    <p class="privacy">
+      Nunca compartiremos su dirección de correo electrónico.
+      <a href="#">política de privacidad ↗</a>
+    </p>
+
+    <a href="#" class="subscribe-btn">Inscribirse ↗</a>
+  </div>
+
+</section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="nasa-footer">
+  <div class="footer-top">
+    <div class="footer-col logo-col">
+      <div class="logo-box">
+        <!-- TU LOGO AQUÍ -->
+        <img src="../img/logo.jpg" alt="Logo" />
+      </div>
+
+      <h3>Administración Nacional<br>de Aeronáutica y del Espacio</h3>
+      <p>
+        La NASA explora lo desconocido en el aire y el espacio, innova para
+        beneficio de la humanidad e inspira al mundo a través del
+        descubrimiento.
+      </p>
+
+      <a href="#" class="footer-link arrow">Únete a nosotros</a>
+    </div>
+
+    <div class="footer-col">
+      <a href="#">Inicio</a>
+      <a href="#">Misiones</a>
+      <a href="#">Personas en el espacio</a>
+      <a href="#">Tierra</a>
+      <a href="#">Sistema solar</a>
+    </div>
+
+    <div class="footer-col">
+      <a href="#">El Universo</a>
+      <a href="#">Aeronáutica</a>
+      <a href="#">Tecnología</a>
+      <a href="#">Planetas</a>
+      <a href="#">Acerca de la NASA</a>
+
+      <a href="#">Tienda en linea</a>
+    </div>
+  </div>
+
+  <div class="footer-divider"></div>
+
+  <div class="footer-bottom">
+    <div class="footer-bottom-left">
+      <span>© 2026 NASA, Inc.</span>
+      <a href="#">Términos</a>
+      <a href="#">Privacidad</a>
+      <a href="#">Mapa del sitio web</a>
+      <a href="#">Administrar cookies</a>
+    </div>
+
+    <div class="footer-bottom-right">
+      <span>🌐 Español</span>
+    </div>
+  </div>
+</footer>
+<!-- ================= JS ================= -->
+<script>
+  const menuBtn = document.getElementById("menuBtn");
+  const sideMenu = document.getElementById("sideMenu");
+  const closeMenu = document.getElementById("closeMenu");
+
+  menuBtn.addEventListener("click", () => {
+    sideMenu.classList.add("active");
+  });
+
+  closeMenu.addEventListener("click", () => {
+    sideMenu.classList.remove("active");
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NASA — Inicio de Sesión</title>
+
+<!-- ICONOS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="../css/logininiciosesion.css">
+</head>
+
+<body>
+
+<div class="container">
+  <div class="login-card">
+
+    <div class="logo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/NASA_logo.svg">
+      <h2>NASA</h2>
+    </div>
+
+    <div class="welcome-text">
+      <h1>Inicio de Sesión</h1>
+      <p>Sistema de acceso seguro a la NASA y los datos espaciales</p>
+    </div>
+
+    <form id="loginForm">
+      <div class="form-group">
+        <label class="form-label">Correo electrónico</label>
+        <input type="email" class="form-input" placeholder="example123@email.com" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Contraseña</label>
+        <div class="password-container">
+          <input type="password" class="form-input" id="password" required>
+          <button type="button" class="toggle-password" onclick="togglePass()">
+            <i class="fas fa-eye"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="remember-forgot">
+        <label class="remember">
+          <input type="checkbox"> Recordarme
+        </label>
+        <a href="#" class="forgot-password">¿Olvidaste tu acceso?</a>
+      </div>
+
+<div class="register-wrapper">
+  <button
+    type="button"
+    class="register-btn"
+    onclick="window.location.href='/Frontend/template/registrar.html'">
+    ¿NO TIENES CUENTA? REGÍSTRATE
+  </button>
+</div>
+
+
+
+
+      <button class="login-btn">INICIAR SESIÓN</button>
+
+      <button type="button" class="google-btn">
+        <i class="fab fa-google"></i> Continuar con Google
+      </button>
+
+      <div class="signup-link">
+        Acceso restringido •<a href="../template/loginadmin.html">Personal autorizado</a>
+      </div>
+
+  
+
+    </form>
+
+  </div>
+</div>
+
+<script>
+function togglePass(){
+  const pass = document.getElementById("password");
+  pass.type = pass.type === "password" ? "text" : "password";
+}
+
+document.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", e => {
+    const href = link.getAttribute("href");
+    if (!href || href.startsWith("#")) return;
+
+    e.preventDefault();
+    document.body.style.opacity = "0";
+    setTimeout(() => {
+      window.location.href = href;
+    }, 300);
+  });
+});
+
+
+</script>
+
+<script src="../js/logininiciodesesion.js"></script>
+
+<!-- Supabase CDN -->
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+
+<!-- Configuración Supabase -->
+<script src="js/supabase.js"></script>
+
+<!-- Tu lógica -->
+<script src="js/login.js"></script>
+</body>
+</html>

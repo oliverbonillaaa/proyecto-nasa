@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>NASA — Misiones</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TIPOGRAFÍA -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- ICONOS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="../css/missiones.css">
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="header-inner">
+
+    <div class="header-left">
+  <button class="menu-btn" id="menuBtn">☰</button>
+
+  <div class="search-box">
+    <i class="fas fa-magnifying-glass search-icon"></i>
+    <input type="text" placeholder="Buscar en NASA">
+  </div>
+</div>
+
+
+     <a href="index.html" class="brand-logo-link">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/NASA_logo.svg" class="brand-logo" alt="NASA">
+</a>
+
+
+    <div class="header-right">
+  <nav class="main-nav">
+    <a href="missiones.html">Misiones</a>
+    
+    <a href="tecnologia.html">Tecnología</a>
+    <a href="#">NASA TV</a>
+    <a href="#">Noticias</a>
+
+  
+
+  <!-- BOTÓN LOGIN / REGISTRO -->
+  <a href="logininiciodesesion.html" class="login-btn">
+    <i class="fas fa-user-astronaut"></i>
+    Acceder
+  </a>
+</nav>
+
+  </nav>
+
+ 
+</header>
+
+<!-- ================= MENU LATERAL ================= -->
+<aside class="side-menu" id="sideMenu">
+  <button class="close-btn" id="closeMenu">✕</button>
+  <nav class="side-nav">
+    <a href="#">Inicio</a>
+    <a href="#">Misiones</a>
+    
+    <a href="#">Tecnología</a>
+    <a href="#">NASA TV</a>
+    <a href="#">Noticias</a>
+  </nav>
+</aside>
+
+
+<!-- ================= HERO VIDEO ================= -->
+
+<section class="missions-hero-video">
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="../img/video2.mov" type="video/mp4">
+    Tu navegador no soporta video HTML5
+  </video>
+
+  <div class="missions-hero-overlay"></div>
+
+  <div class="missions-hero-content">
+    <h1>Explora las Misiones de la NASA</h1>
+    <p>Descubre las misiones actuales y pasadas que nos acercan al universo.</p>
+    <a href="#missions-gallery" class="cta-primary">Ver Misiones →</a>
+  </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section class="missions-gallery" id="missions-gallery">
+  <h2>Nuestras Misiones</h2>
+
+  <div class="missions-grid">
+    <div class="mission-card">
+      <img src="../img/Mision1.webp" alt="Exploración Lunar">
+      <h3>Exploracion Espacial</h3>
+ <p> Protegiendo la Tierra de amenazas espaciales.
+Misiones dedicadas a detectar, rastrear y estudiar asteroides y cometas 
+que podrían representar un riesgo para nuestro planeta.</p>
+     <button 
+  class="info-btn"
+  data-title="Exploración Espacial"
+  data-text="La exploración espacial es una de las principales misiones de la NASA, enfocada en descubrir y comprender el universo más allá de la Tierra. 
+  A través de misiones tripuladas y no tripuladas, la agencia investiga planetas, lunas, asteroides y otros cuerpos celestes para responder preguntas fundamentales sobre el origen del sistema solar 
+  y la posibilidad de vida fuera de nuestro planeta.
+
+Estas misiones permiten desarrollar nuevas tecnologías, mejorar la seguridad de los astronautas y ampliar el conocimiento científico, 
+sentando las bases para futuras exploraciones humanas a la Luna, Marte y más allá. La exploración espacial también impulsa la innovación tecnológica que luego se aplica en la vida cotidiana en la Tierra."
+>
+  Más info →
+</button>
+
+    </div>
+
+    <div class="mission-card">
+      <img src="../img/Mision2.webp" alt="Naves Espaciales">
+     <h3>Exploración del Espacio Profundo</h3> 
+<p>Explorando los límites del sistema solar.
+Sondas y naves espaciales que viajan más allá de la Tierra para estudiar planetas, 
+estrellas y el origen del universo.</p>
+     <button 
+  class="info-btn"
+  data-title="Exploración Lunar"
+  data-text="Los satélites desarrollados por la NASA juegan un papel esencial en las comunicaciones globales y en la recopilación de datos científicos. 
+  Estos dispositivos permiten transmitir información en tiempo real, mejorar los sistemas de navegación y apoyar investigaciones climáticas y meteorológicas.
+
+Además, los satélites facilitan servicios cotidianos como el GPS, la predicción del clima y las telecomunicaciones, 
+demostrando cómo la tecnología espacial impacta directamente en la vida diaria."
+>
+  Más info →
+</button>
+
+    </div>
+
+    <div class="mission-card">
+      <img src="../img/Mision3.jpg" alt="Comunicación Espacial">
+      <h3>Exploración de Marte</h3>
+
+<p>Investigando el planeta rojo.
+Rovers y misiones científicas que analizan el suelo, 
+la atmósfera y las condiciones de Marte en busca de señales de vida pasada.</p>
+      <button 
+  class="info-btn"
+  data-title="Exploración Lunar"
+  data-text="La exploración del universo se enfoca en el estudio de galaxias, estrellas, agujeros negros y otros fenómenos cósmicos. 
+  Mediante telescopios espaciales y misiones especializadas, la NASA investiga los misterios más profundos del cosmos.
+
+Estos descubrimientos ayudan a comprender la formación del universo, 
+el origen de la materia y la posibilidad de vida en otros sistemas estelares, ampliando nuestra visión del lugar que ocupa la humanidad en el universo."
+>
+  Más info →
+</button>
+
+    </div>
+
+    <div class="mission-card">
+  <img src="../img/space2.jpg" alt="Observación de la Tierra">
+  <h3>Observación de la Tierra</h3>
+
+<p>Cuidando nuestro planeta desde el espacio.
+Satélites avanzados monitorean el clima, los océanos, la atmósfera
+ y los cambios ambientales para proteger la vida en la Tierra.</p>
+
+  <button class="info-btn" data-title="Observación de la Tierra"
+    data-text="La observación de la Tierra se realiza mediante satélites que recopilan información detallada sobre la atmósfera, los océanos, 
+    la superficie terrestre y los cambios ambientales. Estos datos permiten monitorear fenómenos naturales como huracanes, terremotos, incendios forestales y el calentamiento global.
+
+Gracias a esta información, científicos y gobiernos pueden tomar decisiones más precisas para la prevención de desastres, 
+la protección del medio ambiente y el uso responsable de los recursos naturales, contribuyendo al bienestar de la humanidad.">
+    Más info →
+  </button>
+</div>
+
+<div class="mission-card">
+  <img src="../img/nave.webp" alt="Aeronáutica">
+  <h3>Aeronáutica</h3>
+
+<p>Innovación que transforma el vuelo.
+Desarrollo de aviones, drones y tecnologías aéreas más seguras, 
+eficientes y sostenibles para el futuro de la aviación.</p>
+  <button class="info-btn" data-title="Aeronáutica"
+    data-text="La NASA desarrolla tecnología aeronáutica avanzada para mejorar la seguridad, eficiencia y sostenibilidad del transporte aéreo. 
+    Estas investigaciones incluyen el diseño de aeronaves más silenciosas, eficientes en el consumo de combustible y con menor impacto ambiental.
+
+Los avances en este campo no solo benefician a la exploración espacial, sino que también se aplican en la aviación comercial, 
+ayudando a reducir costos, emisiones contaminantes y riesgos en los vuelos alrededor del mundo.">
+    Más info →
+  </button>
+</div>
+
+    <div class="mission-card">
+      <img src="../img/astro.jpg" alt="Exploración Marciana">
+      <h3>Vida y Trabajo en el Espacio</h3>
+
+<p>Ciencia en microgravedad.
+Astronautas realizando experimentos y misiones a bordo de estaciones espaciales para mejorar la vida en la Tierra
+ y preparar futuras misiones.</p>
+      <button 
+  class="info-btn"
+  data-title="Exploración Lunar"
+  data-text="La investigación científica es el pilar del trabajo de la NASA y abarca disciplinas como la física, la biología, 
+  la química y la astronomía. A través de experimentos en el espacio y en la Tierra, se estudian los efectos de la microgravedad, la radiación y otros factores extremos.
+
+Estos estudios contribuyen al desarrollo de nuevos materiales, medicamentos y tecnologías, 
+además de ampliar el conocimiento sobre cómo funciona el universo y cómo los seres humanos pueden adaptarse a entornos extremos."
+>
+  Más info →
+</button>
+
+    </div>
+  </div>
+</section>
+
+<div class="modal-overlay" id="modal">
+  <div class="modal-content">
+    <button class="close-modal">&times;</button>
+    <h2 id="modal-title"></h2>
+    <p id="modal-text"></p>
+  </div>
+</div>
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="nasa-footer">
+  <div class="footer-top">
+    <div class="footer-col logo-col">
+      <div class="logo-box">
+        <!-- TU LOGO AQUÍ -->
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/NASA_logo.svg" alt="Logo" />
+      </div>
+
+      <h3>Administración Nacional<br>de Aeronáutica y del Espacio</h3>
+      <p>
+        La NASA explora lo desconocido en el aire y el espacio, innova para
+        beneficio de la humanidad e inspira al mundo a través del
+        descubrimiento.
+      </p>
+
+      <a href="#" class="footer-link arrow">Únete a nosotros</a>
+    </div>
+
+    <div class="footer-col">
+      <a href="#">Inicio</a>
+      <a href="#">Misiones</a>
+      <a href="#">Personas en el espacio</a>
+      <a href="#">Tierra</a>
+      <a href="#">Sistema solar</a>
+    </div>
+
+    <div class="footer-col">
+      <a href="#">El Universo</a>
+      <a href="#">Aeronáutica</a>
+      <a href="#">Tecnología</a>
+      <a href="#">Planetas</a>
+      <a href="#">Acerca de la NASA</a>
+
+      <a href="#">Tienda en linea</a>
+    </div>
+  </div>
+
+  <div class="footer-divider"></div>
+
+  <div class="footer-bottom">
+    <div class="footer-bottom-left">
+      <span>© 2026 NASA, Inc.</span>
+      <a href="#">Términos</a>
+      <a href="#">Privacidad</a>
+      <a href="#">Mapa del sitio web</a>
+      <a href="#">Administrar cookies</a>
+    </div>
+
+    <div class="footer-bottom-right">
+      <span>🌐 Español / V 1.0</span>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ================= JS ================= -->
+<script>
+  const menuBtn = document.getElementById("menuBtn");
+  const sideMenu = document.getElementById("sideMenu");
+  const closeMenu = document.getElementById("closeMenu");
+
+  menuBtn.addEventListener("click", () => {
+    sideMenu.classList.add("active");
+  });
+
+  closeMenu.addEventListener("click", () => {
+    sideMenu.classList.remove("active");
+  });
+</script>
+ <script src="../js/missiones.js"></script>
+
+</body>
+</html>

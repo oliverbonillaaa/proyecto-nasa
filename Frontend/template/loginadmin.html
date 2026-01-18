@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NASA — Acceso Restringido</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+:root {
+  --nasa-blue: #0b3d91;
+  --nasa-light: #6c8beb;
+  --glass: rgba(255,255,255,0.08);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter','Segoe UI',sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(108,139,235,0.15), transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(255,255,255,0.08), transparent 50%),
+    url("https://images.unsplash.com/photo-1446776811953-b23d57bd21aa");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  position: relative;
+  transition: opacity 0.3s ease;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(2,6,25,0.85);
+}
+
+
+
+/* =========================
+   CONTENEDOR
+========================= */
+.container {
+  z-index: 1;
+  width: 100%;
+  max-width: 420px;
+}
+
+.login-card {
+  background: var(--glass);
+  backdrop-filter: blur(25px);
+  border-radius: 22px;
+  padding: 40px;
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+  animation: fadeIn 0.9s ease;
+}
+
+/* =========================
+   LOGO
+========================= */
+.logo {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.logo img {
+  width: 80px;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 0 18px rgba(108,139,235,0.8));
+}
+
+.logo h2 {
+  font-size: 26px;
+  letter-spacing: 4px;
+  font-weight: 800;
+}
+
+/* =========================
+   TEXTO
+========================= */
+.header-text {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.header-text h1 {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.header-text p {
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+/* =========================
+   FORM
+========================= */
+.form-group {
+  margin-bottom: 22px;
+}
+
+.form-label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.form-input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.08);
+  color: white;
+  font-size: 15px;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--nasa-light);
+  box-shadow: 0 0 0 3px rgba(108,139,235,0.25);
+}
+
+/* PIN */
+.pin-input {
+  text-align: center;
+  letter-spacing: 8px;
+  font-size: 20px;
+}
+
+/* =========================
+   BOTÓN
+========================= */
+.login-btn {
+  width: 100%;
+  padding: 15px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, var(--nasa-light), var(--nasa-blue));
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.login-btn:hover {
+  box-shadow: 0 10px 30px rgba(108,139,235,0.5);
+}
+
+/* =========================
+   BOTÓN REGISTRO
+========================= */
+.register-btn {
+  width: 100%;
+  padding: 14px;
+  margin-top: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(108,139,235,0.6);
+  background: transparent;
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.register-btn:hover {
+  background: linear-gradient(135deg, rgba(108,139,235,0.25), rgba(11,61,145,0.25));
+  box-shadow: 0 0 15px rgba(108,139,235,0.5);
+  transform: translateY(-2px);
+}
+
+/* =========================
+   VOLVER ATRÁS
+========================= */
+.back-link {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.back-link a {
+  color: rgba(108,139,235,0.9);
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.back-link a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(108,139,235,0.8);
+}
+
+
+/* =========================
+   ALERTA
+========================= */
+.message {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.success {
+  color: #8ef0b3;
+}
+
+.error {
+  color: #ff9fa6;
+}
+
+
+/* =========================
+   ANIMACIÓN
+========================= */
+@keyframes fadeIn {
+  from {opacity:0; transform: translateY(30px);}
+  to {opacity:1; transform: translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="login-card">
+
+    <div class="logo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/NASA_logo.svg">
+      <h2>NASA</h2>
+    </div>
+
+    <div class="header-text">
+      <h1>ACCESO RESTRINGIDO</h1>
+      <p>Solo personal autorizado • Nivel de seguridad alto</p>
+    </div>
+
+    <form id="secureLogin">
+      <div class="form-group">
+        <label class="form-label">Usuario autorizado</label>
+        <input type="text" id="user" class="form-input" placeholder="ID del personal" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">PIN de Seguridad</label>
+        <input type="password" id="pin" class="form-input pin-input" maxlength="6" placeholder="••••••" required>
+      </div>
+
+    
+
+      <button type="submit" class="login-btn">
+        VERIFICAR ACCESO
+      </button>
+
+   
+
+      <div class="back-link">
+  <a href="../template/logininiciodesesion.html">← Volver atrás</a>
+</div>
+
+
+      <div id="msg" class="message"></div>
+    </form>
+
+  </div>
+</div>
+
+<script>
+const form = document.getElementById("secureLogin");
+const msg = document.getElementById("msg");
+
+form.addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const user = document.getElementById("user").value.trim();
+  const pin = document.getElementById("pin").value.trim();
+
+  if(!user || !pin){
+    msg.textContent = "Credenciales incompletas.";
+    msg.className = "message error";
+    return;
+  }
+
+  if(!/^[0-9]{4,6}$/.test(pin)){
+    msg.textContent = "El PIN debe ser numérico (4–6 dígitos).";
+    msg.className = "message error";
+    return;
+  }
+
+  msg.textContent = "Acceso concedido. Verificando identidad...";
+  msg.className = "message success";
+
+  setTimeout(() => {
+    msg.textContent = "Bienvenido, personal autorizado.";
+  }, 1500);
+});
+
+document.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", e => {
+    const href = link.getAttribute("href");
+    if (!href || href.startsWith("#")) return;
+
+    e.preventDefault();
+    document.body.style.opacity = "0";
+    setTimeout(() => {
+      window.location.href = href;
+    }, 300);
+  });
+});
+
+</script>
+
+</body>
+</html>
