@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASA - Seleccionar Plan</title>
+    <link rel="stylesheet" href="../css/selecionar-plan.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="plan-selection-container">
+        <div class="header">
+            <div class="logo">
+                <i class="fas fa-rocket"></i>
+                <h1>ELIGE TU <span>MISIÓN</span></h1>
+            </div>
+            <p class="subtitle">Selecciona el nivel de exploración que deseas</p>
+        </div>
+
+        <div class="plans-grid">
+            <!-- Plan GRATIS -->
+            <div class="plan-card free">
+                <div class="plan-badge">
+                    <span class="badge free-badge">GRATIS</span>
+                </div>
+                <div class="plan-icon">
+                    <i class="fas fa-user-astronaut"></i>
+                </div>
+                <h2 class="plan-title">Explorador</h2>
+                <div class="price">
+                    <span class="amount">$0</span>
+                    <span class="period">/para siempre</span>
+                </div>
+                <ul class="features-list">
+                    <li><i class="fas fa-check"></i> Notificaciones básicas diarias</li>
+                    <li><i class="fas fa-check"></i> Resumen semanal del espacio</li>
+                    <li><i class="fas fa-check"></i> Acceso a fotos públicas de la NASA</li>
+                    <li><i class="fas fa-check"></i> Alertas de lanzamientos importantes</li>
+                    <li><i class="fas fa-times"></i> <span class="disabled">Contenido VIP exclusivo</span></li>
+                    <li><i class="fas fa-times"></i> <span class="disabled">Reportes personalizados</span></li>
+                </ul>
+                <button class="select-plan-btn free-btn" onclick="selectPlan('free')">
+                    <i class="fas fa-rocket"></i> Comenzar Misión Gratuita
+                </button>
+            </div>
+
+            <!-- Plan VIP -->
+            <div class="plan-card vip">
+                <div class="plan-badge">
+                    <span class="badge vip-badge">RECOMENDADO</span>
+                    <span class="badge popular">MÁS POPULAR</span>
+                </div>
+                <div class="plan-icon">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <h2 class="plan-title">Comandante VIP</h2>
+                <div class="price">
+                    <span class="amount">$10</span>
+                    <span class="period">/mes</span>
+                </div>
+                <div class="vip-tag">
+                    <i class="fas fa-bolt"></i> ACCESO TOTAL
+                </div>
+                <ul class="features-list">
+                    <li><i class="fas fa-star"></i> <strong>Todas las funciones del plan Gratis</strong></li>
+                    <li><i class="fas fa-check"></i> Notificaciones en tiempo real 24/7</li>
+                    <li><i class="fas fa-check"></i> Contenido exclusivo antes del lanzamiento</li>
+                    <li><i class="fas fa-check"></i> Reportes meteorológicos espaciales</li>
+                    <li><i class="fas fa-check"></i> Análisis de datos de misiones activas</li>
+                    <li><i class="fas fa-check"></i> Acceso a transmisiones VIP de la NASA</li>
+                    <li><i class="fas fa-check"></i> Soporte prioritario 24/7</li>
+                    <li><i class="fas fa-check"></i> Widget personalizable para escritorio</li>
+                </ul>
+                <button class="select-plan-btn vip-btn" onclick="selectPlan('vip')">
+                    <i class="fas fa-gem"></i> Convertirse en Comandante VIP
+                </button>
+                <div class="guarantee">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Garantía de 30 días o tu dinero de vuelta</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="comparison-table">
+            <h3><i class="fas fa-chart-bar"></i> Comparación Detallada</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Característica</th>
+                        <th>Explorador (Gratis)</th>
+                        <th>Comandante VIP</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Notificaciones diarias</td>
+                        <td><i class="fas fa-check"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Contenido exclusivo</td>
+                        <td><i class="fas fa-times"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Alertas en tiempo real</td>
+                        <td><i class="fas fa-times"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Soporte prioritario</td>
+                        <td><i class="fas fa-times"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Widget personalizable</td>
+                        <td><i class="fas fa-times"></i></td>
+                        <td><i class="fas fa-check"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="../js/seleccionar-plan.js"></script>
+</body>
+</html>

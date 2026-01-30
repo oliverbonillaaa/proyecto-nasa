@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASA - Registro para Notificaciones</title>
+    <link rel="stylesheet" href="../css/registro-notificaciones.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="nasa-registro-container">
+        <div class="nasa-header">
+            <div class="nasa-logo">
+                <i class="fas fa-rocket"></i>
+                <h1>NASA<span>NOTIFICACIONES</span></h1>
+            </div>
+            <p class="tagline">Explora el universo desde tu bandeja de entrada</p>
+        </div>
+
+        <div class="registro-card">
+            <h2><i class="fas fa-user-astronaut"></i> Registro para Notificaciones</h2>
+            
+            <form id="registroForm">
+                <div class="input-group">
+                    <label for="email">
+                        <i class="fas fa-envelope"></i> Correo Electrónico
+                    </label>
+                    <input type="email" id="email" required placeholder="tucorreo@ejemplo.com">
+                </div>
+
+                <div class="input-group">
+                    <label for="password">
+                        <i class="fas fa-lock"></i> Contraseña
+                    </label>
+                    <input type="password" id="password" required placeholder="Mínimo 8 caracteres">
+                    <div class="password-strength">
+                        <div class="strength-bar" id="strengthBar"></div>
+                        <span id="strengthText">Seguridad de contraseña</span>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="confirmPassword">
+                        <i class="fas fa-lock"></i> Confirmar Contraseña
+                    </label>
+                    <input type="password" id="confirmPassword" required>
+                </div>
+
+                <div class="terms">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">
+                        Acepto recibir notificaciones de la NASA y he leído la 
+                        <a href="#" class="privacy-link">política de privacidad</a>
+                    </label>
+                </div>
+
+                <button type="submit" class="nasa-btn">
+                    <i class="fas fa-paper-plane"></i> Continuar al Plan
+                    <span class="btn-glow"></span>
+                </button>
+
+                <div class="login-link">
+                    ¿Ya tienes cuenta? <a href="logininiciodesesion.html">Inicia sesión aquí</a>
+                </div>
+            </form>
+
+            <div class="security-note">
+                <i class="fas fa-shield-alt"></i>
+                <p>Tus datos están protegidos con encriptación de nivel espacial</p>
+            </div>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature">
+                <i class="fas fa-satellite"></i>
+                <h3>Actualizaciones en Tiempo Real</h3>
+                <p>Noticias del espacio al instante</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-user-astronaut"></i>
+                <h3>Contenido Exclusivo</h3>
+                <p>Acceso a material único de la NASA</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-globe-americas"></i>
+                <h3>Cobertura Global</h3>
+                <p>Desde la Tierra hasta los confines del universo</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/registro-notificaciones.js"></script>
+</body>
+</html>

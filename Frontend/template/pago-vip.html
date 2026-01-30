@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago VIP - NASA Notificaciones</title>
+    <link rel="stylesheet" href="../css/pago-vip.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Pago VIP</h1>
+        <p>Por favor, ingresa los datos de tu tarjeta para completar el pago de $10.</p>
+        <form id="pagoForm">
+            <div class="form-group">
+                <label for="cardNumber">Número de Tarjeta</label>
+                <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" required>
+            </div>
+            <div class="form-group">
+                <label for="cardExpiry">Fecha de Expiracion</label>
+                <input type="text" id="cardExpiry" placeholder="MM/AA" required>
+            </div>
+            <div class="form-group">
+                <label for="cardCvc">CVC</label>
+                <input type="text" id="cardCvc" placeholder="123" required>
+            </div>
+            <div class="form-group">
+                <label for="cardName">Nombre de la Tarjeta</label>
+                <input type="text" id="cardName" placeholder="John Doe" required>
+            </div>
+            <button type="submit">Pagar $10</button>
+        </form>
+    </div>
+    <script src="../js/pago-vip.js"></script>
+</body>
+</html>

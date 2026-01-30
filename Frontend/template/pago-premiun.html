@@ -1,0 +1,3034 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASA VIP - Acceso Premium Completo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/cleave.js@1.6.0/dist/cleave.min.js"></script>
+    <style>
+        :root {
+            --nasa-dark-blue: #0b3d91;
+            --nasa-blue: #0066cc;
+            --nasa-light-blue: #1c8bd9;
+            --nasa-red: #fc3d21;
+            --nasa-orange: #ff6b35;
+            --nasa-white: #ffffff;
+            --nasa-black: #000000;
+            --nasa-gray-dark: #0f1721;
+            --nasa-gray: #1e2a38;
+            --nasa-gray-light: #2c3e50;
+            --nasa-silver: #bdc3c7;
+            --nasa-gold: #ffd700;
+            --success-green: #2ecc71;
+            --warning-yellow: #f39c12;
+            --error-red: #e74c3c;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--nasa-gray-dark);
+            color: var(--nasa-white);
+            line-height: 1.6;
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(11, 61, 145, 0.15) 0%, transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(252, 61, 33, 0.1) 0%, transparent 25%),
+                linear-gradient(135deg, var(--nasa-gray-dark) 0%, #0a1520 100%);
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle 5s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header NASA Mejorado */
+        .nasa-header {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(11, 61, 145, 0.9));
+            padding: 15px 0;
+            border-bottom: 3px solid var(--nasa-red);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nasa-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .nasa-logo:hover {
+            transform: scale(1.02);
+        }
+
+        .nasa-logo-icon {
+            color: var(--nasa-red);
+            font-size: 2.8rem;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .nasa-logo-text {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 2.2rem;
+            letter-spacing: 2px;
+            background: linear-gradient(to right, var(--nasa-white), var(--nasa-light-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(11, 61, 145, 0.5);
+        }
+
+        .nasa-tagline {
+            font-size: 0.85rem;
+            color: var(--nasa-silver);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .user-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--nasa-blue), var(--nasa-light-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(11, 61, 145, 0.4);
+        }
+
+        .user-avatar:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(11, 61, 145, 0.6);
+        }
+
+        .user-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .user-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .user-status {
+            font-size: 0.85rem;
+            color: var(--nasa-silver);
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .user-status::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--warning-yellow);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .user-status.vip::before {
+            background-color: var(--nasa-gold);
+        }
+
+        /* Progress Steps */
+        .progress-steps {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+            position: relative;
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            flex: 1;
+            max-width: 200px;
+        }
+
+        .step-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--nasa-gray-light);
+            border: 3px solid var(--nasa-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            transition: all 0.3s;
+        }
+
+        .step.active .step-circle {
+            background-color: var(--nasa-blue);
+            border-color: var(--nasa-light-blue);
+            box-shadow: 0 0 20px rgba(28, 139, 217, 0.5);
+        }
+
+        .step.completed .step-circle {
+            background-color: var(--success-green);
+            border-color: #27ae60;
+        }
+
+        .step-text {
+            font-size: 0.9rem;
+            color: var(--nasa-silver);
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .step.active .step-text {
+            color: var(--nasa-white);
+        }
+
+        .progress-line {
+            position: absolute;
+            top: 25px;
+            left: 10%;
+            right: 10%;
+            height: 4px;
+            background-color: var(--nasa-gray);
+            z-index: 1;
+        }
+
+        .progress-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: linear-gradient(to right, var(--nasa-blue), var(--nasa-light-blue));
+            width: 33%;
+            transition: width 0.5s ease;
+        }
+
+        /* Main Content */
+        .payment-main {
+            flex: 1;
+            padding: 20px 0 60px;
+        }
+
+        .payment-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .payment-title h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, var(--nasa-white), var(--nasa-light-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            display: inline-block;
+        }
+
+        .payment-title h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 25%;
+            width: 50%;
+            height: 3px;
+            background: linear-gradient(to right, transparent, var(--nasa-red), transparent);
+        }
+
+        .payment-title p {
+            color: var(--nasa-silver);
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .payment-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 40px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .payment-grid {
+                grid-template-columns: 1fr;
+                max-width: 800px;
+                margin: 0 auto;
+            }
+        }
+
+        /* Order Summary */
+        .order-summary {
+            background: linear-gradient(145deg, rgba(30, 42, 56, 0.9), rgba(15, 23, 33, 0.9));
+            border-radius: 15px;
+            padding: 35px;
+            border: 1px solid rgba(76, 86, 106, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            position: sticky;
+            top: 150px;
+            height: fit-content;
+        }
+
+        .summary-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(76, 86, 106, 0.3);
+        }
+
+        .summary-icon {
+            color: var(--nasa-gold);
+            font-size: 1.8rem;
+        }
+
+        .summary-header h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .plan-card {
+            background: linear-gradient(135deg, rgba(11, 61, 145, 0.3), rgba(0, 0, 0, 0.3));
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-left: 5px solid var(--nasa-red);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .plan-card::before {
+            content: 'VIP';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--nasa-red);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 900;
+            padding: 3px 10px;
+            border-radius: 20px;
+            letter-spacing: 1px;
+        }
+
+        .plan-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+            color: var(--nasa-white);
+        }
+
+        .plan-price {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--nasa-gold);
+            margin-bottom: 5px;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .plan-duration {
+            color: var(--nasa-silver);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .plan-duration i {
+            color: var(--nasa-red);
+        }
+
+        .plan-features {
+            list-style: none;
+        }
+
+        .plan-features li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s;
+        }
+
+        .plan-features li:hover {
+            transform: translateX(5px);
+            border-bottom-color: rgba(252, 61, 33, 0.3);
+        }
+
+        .plan-features li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-icon {
+            color: var(--nasa-red);
+            font-size: 1rem;
+            min-width: 20px;
+        }
+
+        .feature-text {
+            flex: 1;
+        }
+
+        .feature-badge {
+            background-color: rgba(11, 61, 145, 0.5);
+            color: var(--nasa-light-blue);
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+
+        .summary-total {
+            background: linear-gradient(135deg, rgba(11, 61, 145, 0.4), rgba(0, 0, 0, 0.4));
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 30px;
+            border: 1px solid rgba(28, 139, 217, 0.3);
+            position: relative;
+        }
+
+        .total-line {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .total-line:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .total-amount {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--nasa-gold);
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .tax-note {
+            font-size: 0.85rem;
+            color: var(--nasa-silver);
+            margin-top: 10px;
+            text-align: right;
+            font-style: italic;
+        }
+
+        .currency-selector {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .currency-option {
+            flex: 1;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            color: var(--nasa-silver);
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .currency-option:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .currency-option.active {
+            background-color: rgba(11, 61, 145, 0.5);
+            border-color: var(--nasa-blue);
+            color: white;
+        }
+
+        /* Payment Form */
+        .payment-form-container {
+            background: linear-gradient(145deg, rgba(30, 42, 56, 0.9), rgba(15, 23, 33, 0.9));
+            border-radius: 15px;
+            padding: 35px;
+            border: 1px solid rgba(76, 86, 106, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            animation: fadeInRight 0.8s ease;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .payment-tabs {
+            display: flex;
+            border-bottom: 2px solid rgba(76, 86, 106, 0.3);
+            margin-bottom: 30px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .payment-tabs::-webkit-scrollbar {
+            display: none;
+        }
+
+        .payment-tab {
+            flex: 1;
+            min-width: 150px;
+            padding: 20px 15px;
+            background: none;
+            border: none;
+            color: var(--nasa-silver);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            transition: all 0.3s;
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .payment-tab:hover {
+            color: var(--nasa-white);
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .payment-tab.active {
+            color: var(--nasa-white);
+        }
+
+        .payment-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, var(--nasa-red), var(--nasa-orange));
+            box-shadow: 0 0 10px rgba(252, 61, 33, 0.5);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Credit Card Visualization */
+        .card-visualization {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            perspective: 1000px;
+        }
+
+        .credit-card-wrapper {
+            width: 100%;
+            max-width: 400px;
+            height: 250px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+        }
+
+        .credit-card-wrapper.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .credit-card, .credit-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .credit-card {
+            background: linear-gradient(135deg, #1a1a1a, #2c3e50);
+            transform: rotateY(0deg);
+        }
+
+        .credit-card-back {
+            background: linear-gradient(135deg, #2c3e50, #1a1a1a);
+            transform: rotateY(180deg);
+            justify-content: flex-start;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-type {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            color: var(--nasa-silver);
+            letter-spacing: 1px;
+        }
+
+        .card-chip {
+            width: 60px;
+            height: 45px;
+            background: linear-gradient(135deg, #d4af37, #ffd700, #d4af37);
+            border-radius: 8px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-chip::after {
+            content: '';
+            position: absolute;
+            width: 85%;
+            height: 75%;
+            border: 2px solid rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+        }
+
+        .card-number {
+            font-family: 'Courier New', monospace;
+            font-size: 1.8rem;
+            letter-spacing: 3px;
+            text-align: center;
+            color: var(--nasa-white);
+            margin: 20px 0;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .card-holder {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-label {
+            font-size: 0.75rem;
+            color: var(--nasa-silver);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .card-value {
+            font-size: 1.1rem;
+            color: var(--nasa-white);
+            font-weight: 600;
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-expiry {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .card-back-stripe {
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0.7);
+            margin: 25px -25px;
+        }
+
+        .card-cvv-area {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .card-cvv-label {
+            color: var(--nasa-silver);
+            font-size: 0.9rem;
+        }
+
+        .card-cvv-value {
+            background-color: white;
+            color: black;
+            padding: 10px 15px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+            font-weight: bold;
+            min-width: 80px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Form Styling */
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--nasa-silver);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 16px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(76, 86, 106, 0.5);
+            border-radius: 8px;
+            color: var(--nasa-white);
+            font-size: 1rem;
+            transition: all 0.3s;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--nasa-blue);
+            box-shadow: 0 0 0 3px rgba(11, 61, 145, 0.3);
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+
+        .form-input.error {
+            border-color: var(--error-red);
+            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2);
+        }
+
+        .form-input.success {
+            border-color: var(--success-green);
+            box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.2);
+        }
+
+        .input-with-icon {
+            position: relative;
+        }
+
+        .input-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--nasa-silver);
+            pointer-events: none;
+        }
+
+        .input-with-button {
+            position: relative;
+        }
+
+        .cvv-button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--nasa-silver);
+            cursor: help;
+            font-size: 1.1rem;
+        }
+
+        .cvv-button:hover {
+            color: var(--nasa-white);
+        }
+
+        .card-brands {
+            display: flex;
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .card-brand {
+            width: 55px;
+            height: 35px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--nasa-silver);
+            font-size: 1.8rem;
+            transition: all 0.3s;
+        }
+
+        .card-brand.active {
+            color: var(--nasa-white);
+            background-color: rgba(11, 61, 145, 0.6);
+            box-shadow: 0 3px 10px rgba(11, 61, 145, 0.3);
+        }
+
+        .form-hint {
+            font-size: 0.85rem;
+            color: var(--nasa-silver);
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .form-hint.error {
+            color: var(--error-red);
+        }
+
+        .form-hint.success {
+            color: var(--success-green);
+        }
+
+        .save-card-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 30px 0;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .save-card-option input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .save-card-option label {
+            color: var(--nasa-silver);
+            cursor: pointer;
+            flex: 1;
+        }
+
+        /* PayPal & Crypto Tabs */
+        .paypal-tab, .crypto-tab {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .paypal-icon, .crypto-icon {
+            font-size: 5rem;
+            margin-bottom: 25px;
+        }
+
+        .paypal-icon {
+            color: #003087;
+        }
+
+        .crypto-icon {
+            color: #f7931a;
+        }
+
+        .paypal-tab h3, .crypto-tab h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--nasa-white);
+        }
+
+        .paypal-tab p, .crypto-tab p {
+            color: var(--nasa-silver);
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        .paypal-button, .crypto-button {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            background-color: #003087;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px auto 0;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 48, 135, 0.3);
+        }
+
+        .paypal-button:hover {
+            background-color: #009cde;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 48, 135, 0.4);
+        }
+
+        .crypto-button {
+            background-color: #f7931a;
+        }
+
+        .crypto-button:hover {
+            background-color: #ffaa33;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(247, 147, 26, 0.4);
+        }
+
+        .crypto-options {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .crypto-options {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .crypto-option {
+            padding: 25px 15px;
+            background-color: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .crypto-option:hover {
+            border-color: var(--nasa-blue);
+            background-color: rgba(11, 61, 145, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .crypto-option.selected {
+            border-color: var(--nasa-red);
+            background-color: rgba(252, 61, 33, 0.1);
+            box-shadow: 0 5px 15px rgba(252, 61, 33, 0.2);
+        }
+
+        .crypto-option i {
+            font-size: 2.5rem;
+        }
+
+        .crypto-option .crypto-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .crypto-option .crypto-symbol {
+            color: var(--nasa-silver);
+            font-size: 0.9rem;
+        }
+
+        .crypto-info {
+            margin-top: 40px;
+            padding: 30px;
+            background-color: rgba(11, 61, 145, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(28, 139, 217, 0.3);
+            text-align: left;
+        }
+
+        .crypto-info h4 {
+            margin-bottom: 15px;
+            color: var(--nasa-white);
+            font-size: 1.3rem;
+        }
+
+        .crypto-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 576px) {
+            .crypto-details {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .crypto-detail {
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--nasa-red);
+        }
+
+        .crypto-detail-label {
+            font-size: 0.85rem;
+            color: var(--nasa-silver);
+            margin-bottom: 5px;
+        }
+
+        .crypto-detail-value {
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+            color: var(--nasa-white);
+            word-break: break-all;
+            font-weight: 600;
+        }
+
+        .crypto-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .crypto-action-button {
+            flex: 1;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--nasa-white);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .crypto-action-button:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .crypto-action-button.primary {
+            background-color: var(--nasa-blue);
+            border-color: var(--nasa-light-blue);
+        }
+
+        .crypto-action-button.primary:hover {
+            background-color: var(--nasa-light-blue);
+        }
+
+        /* Security Info */
+        .security-info {
+            background: linear-gradient(135deg, rgba(11, 61, 145, 0.25), rgba(0, 0, 0, 0.25));
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 40px;
+            border: 1px solid rgba(28, 139, 217, 0.3);
+        }
+
+        .security-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .security-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .security-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .security-item:hover {
+            background-color: rgba(0, 0, 0, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .security-icon {
+            color: var(--nasa-red);
+            font-size: 1.5rem;
+            min-width: 30px;
+        }
+
+        .security-text {
+            font-size: 0.95rem;
+            color: var(--nasa-silver);
+        }
+
+        /* Payment Actions */
+        .payment-actions {
+            margin-top: 50px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .payment-button {
+            flex: 1;
+            padding: 22px;
+            background: linear-gradient(135deg, var(--nasa-dark-blue), var(--nasa-blue));
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(11, 61, 145, 0.4);
+        }
+
+        .payment-button:hover:not(.loading):not(:disabled) {
+            background: linear-gradient(135deg, var(--nasa-blue), var(--nasa-light-blue));
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(11, 61, 145, 0.6);
+        }
+
+        .payment-button:active:not(.loading):not(:disabled) {
+            transform: translateY(0);
+        }
+
+        .payment-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .payment-button.loading {
+            background: linear-gradient(135deg, #333, #555);
+        }
+
+        .loading-spinner {
+            display: none;
+            width: 22px;
+            height: 22px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        .payment-button.loading .loading-spinner {
+            display: block;
+        }
+
+        .secondary-button {
+            background: linear-gradient(135deg, #333, #555);
+            max-width: 200px;
+        }
+
+        .secondary-button:hover {
+            background: linear-gradient(135deg, #444, #666);
+        }
+
+        /* Footer */
+        .nasa-footer {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(11, 61, 145, 0.8));
+            padding: 40px 0;
+            border-top: 3px solid var(--nasa-red);
+            margin-top: 80px;
+        }
+
+        .payment-methods {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .payment-method {
+            font-size: 2.5rem;
+            color: var(--nasa-silver);
+            transition: all 0.3s;
+        }
+
+        .payment-method:hover {
+            color: var(--nasa-white);
+            transform: translateY(-5px);
+        }
+
+        .footer-text {
+            text-align: center;
+            color: var(--nasa-silver);
+            font-size: 0.9rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 25px;
+        }
+
+        .footer-link {
+            color: var(--nasa-silver);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-link:hover {
+            color: var(--nasa-white);
+            text-decoration: underline;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal.active {
+            display: flex;
+            animation: fadeIn 0.3s;
+        }
+
+        .modal-content {
+            background: linear-gradient(145deg, rgba(30, 42, 56, 0.95), rgba(15, 23, 33, 0.95));
+            border-radius: 20px;
+            padding: 50px;
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            border: 1px solid rgba(76, 86, 106, 0.5);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+            position: relative;
+            animation: modalSlideIn 0.5s;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--nasa-silver);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .modal-close:hover {
+            color: var(--nasa-white);
+        }
+
+        .modal-icon {
+            font-size: 5rem;
+            margin-bottom: 25px;
+        }
+
+        .modal-icon.success {
+            color: var(--success-green);
+            animation: successPulse 2s infinite;
+        }
+
+        @keyframes successPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .modal-icon.error {
+            color: var(--error-red);
+        }
+
+        .modal-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--nasa-white);
+        }
+
+        .modal-message {
+            color: var(--nasa-silver);
+            margin-bottom: 30px;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .modal-details {
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 25px 0;
+            text-align: left;
+        }
+
+        .modal-detail {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .modal-detail:last-child {
+            border-bottom: none;
+        }
+
+        .modal-detail-label {
+            color: var(--nasa-silver);
+        }
+
+        .modal-detail-value {
+            color: var(--nasa-white);
+            font-weight: 600;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .modal-button {
+            flex: 1;
+            padding: 18px;
+            background-color: var(--nasa-dark-blue);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .modal-button:hover {
+            background-color: var(--nasa-blue);
+            transform: translateY(-2px);
+        }
+
+        .modal-button.secondary {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .modal-button.secondary:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Toast notifications customization */
+        .toast-success {
+            background-color: var(--success-green) !important;
+        }
+
+        .toast-error {
+            background-color: var(--error-red) !important;
+        }
+
+        .toast-warning {
+            background-color: var(--warning-yellow) !important;
+        }
+
+        .toast-info {
+            background-color: var(--nasa-blue) !important;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .payment-title h1 {
+                font-size: 2.5rem;
+            }
+            
+            .order-summary, .payment-form-container {
+                padding: 25px;
+            }
+            
+            .step-circle {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .payment-title h1 {
+                font-size: 2rem;
+            }
+            
+            .payment-title p {
+                font-size: 1rem;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .user-info {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .progress-steps {
+                margin: 20px 0;
+            }
+            
+            .step-text {
+                font-size: 0.8rem;
+            }
+            
+            .payment-grid {
+                gap: 25px;
+            }
+            
+            .plan-name {
+                font-size: 1.4rem;
+            }
+            
+            .plan-price {
+                font-size: 2rem;
+            }
+            
+            .credit-card, .credit-card-back {
+                padding: 20px;
+            }
+            
+            .card-number {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .payment-tabs {
+                flex-direction: column;
+            }
+            
+            .payment-tab {
+                min-width: 100%;
+                justify-content: flex-start;
+                padding: 15px;
+            }
+            
+            .crypto-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .payment-actions {
+                flex-direction: column;
+            }
+            
+            .secondary-button {
+                max-width: 100%;
+            }
+            
+            .modal-content {
+                padding: 30px 20px;
+            }
+            
+            .modal-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Stars -->
+    <div class="stars" id="stars"></div>
+
+    <!-- NASA Header -->
+    <header class="nasa-header">
+        <div class="container header-content">
+            <div class="nasa-logo" id="goToDashboard">
+                <div class="nasa-logo-icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/NASA_logo.svg" class="brand-logo" alt="NASA">
+                </div>
+                <div>
+                    <div class="nasa-logo-text">NASA</div>
+                    <div class="nasa-tagline">ACCESO PAGO PREMIUM</div>
+                </div>
+            </div>
+            <div class="user-info">
+                <div class="user-avatar" id="userMenu">
+                    CS
+                </div>
+                <div class="user-details">
+                    <div class="user-name">Christopher Soto</div>
+                    <div class="user-status">Cuenta Celestial • Upgrade a VIP</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Progress Steps -->
+    <div class="container">
+        <div class="progress-steps">
+            <div class="progress-line"></div>
+            <div class="progress-fill" id="progressFill"></div>
+            
+            <div class="step active" id="step1">
+                <div class="step-circle">1</div>
+                <div class="step-text">Seleccionar Plan</div>
+            </div>
+            
+            <div class="step" id="step2">
+                <div class="step-circle">2</div>
+                <div class="step-text">Método de Pago</div>
+            </div>
+            
+            <div class="step" id="step3">
+                <div class="step-circle">3</div>
+                <div class="step-text">Confirmación</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Payment Content -->
+    <main class="payment-main">
+        <div class="container">
+            <div class="payment-title">
+                <h1>ACTIVAR ACCESO PREMIUN NASA</h1>
+                <p>Obtén acceso completo a contenido exclusivo de la NASA, imágenes en ultra alta definición, datos científicos, transmisiones en vivo de lanzamientos y mucho más.</p>
+            </div>
+
+            <div class="payment-grid">
+                <!-- Order Summary -->
+                <section class="order-summary">
+                    <div class="summary-header">
+                        <i class="fas fa-receipt summary-icon"></i>
+                        <h2>Detalles del Plan</h2>
+                    </div>
+
+                    <div class="plan-card">
+                        <div class="plan-name">PLAN COMANDANTE VIP</div>
+                        <div class="plan-price" id="planPrice">$10.00</div>
+                        <div class="plan-duration">
+                            <i class="fas fa-calendar-alt"></i>
+                            Facturación mensual • Cancelación gratuita en cualquier momento
+                        </div>
+                        
+                        <ul class="plan-features">
+                            <li>
+                                <i class="fas fa-check feature-icon"></i>
+                                <span class="feature-text">Acceso completo a contenidos VIP NASA</span>
+                                <span class="feature-badge">EXCLUSIVO</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check feature-icon"></i>
+                                <span class="feature-text">Imágenes en 8K de misiones espaciales</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check feature-icon"></i>
+                                <span class="feature-text">Datos científicos en tiempo real</span>
+                                <span class="feature-badge">NUEVO</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check feature-icon"></i>
+                                <span class="feature-text">Transmisiones en vivo de lanzamientos</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check feature-icon"></i>
+                                <span class="feature-text">Contenido educativo exclusivo</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check feature-icon"></i>
+                                <span class="feature-text">Soporte prioritario 24/7</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check feature-icon"></i>
+                                <span class="feature-text">Acceso anticipado a nuevos contenidos</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check feature-icon"></i>
+                                <span class="feature-text">Certificado digital VIP NASA</span>
+                                <span class="feature-badge">PREMIUM</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="summary-total">
+                        <div class="total-line">
+                            <span>Suscripción mensual:</span>
+                            <span id="subscriptionAmount">$10.00 USD</span>
+                        </div>
+                        <div class="total-line">
+                            <span>Impuestos (0%):</span>
+                            <span>$0.00 USD</span>
+                        </div>
+                        <div class="total-line" style="margin-top: 20px; padding-top: 20px; border-top: 2px solid rgba(255, 255, 255, 0.1);">
+                            <span style="font-weight: 900; font-size: 1.3rem;">Total a pagar:</span>
+                            <span class="total-amount" id="totalAmount">$10.00 USD</span>
+                        </div>
+                        <div class="tax-note">* Sin cargos adicionales • Renovación automática mensual</div>
+                        
+                        <div class="currency-selector">
+                            <div class="currency-option active" data-currency="USD">USD</div>
+                            <div class="currency-option" data-currency="EUR">EUR</div>
+                            <div class="currency-option" data-currency="GBP">GBP</div>
+                            <div class="currency-option" data-currency="MXN">MXN</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Payment Form -->
+                <section class="payment-form-container">
+                    <div class="payment-tabs">
+                        <button class="payment-tab active" data-tab="card">
+                            <i class="far fa-credit-card"></i> Tarjeta de Crédito/Débito
+                        </button>
+                        <button class="payment-tab" data-tab="paypal">
+                            <i class="fab fa-paypal"></i> PayPal
+                        </button>
+                        <button class="payment-tab" data-tab="crypto">
+                            <i class="fas fa-coins"></i> Criptomonedas
+                        </button>
+                        <button class="payment-tab" data-tab="bank">
+                            <i class="fas fa-university"></i> Transferencia Bancaria
+                        </button>
+                    </div>
+
+                    <!-- Credit Card Tab -->
+                    <div class="tab-content active" id="card-tab">
+                        <div class="card-visualization">
+                            <div class="credit-card-wrapper" id="cardWrapper">
+                                <div class="credit-card">
+                                    <div class="card-header">
+                                        <div class="card-type">CREDIT CARD</div>
+                                        <div class="card-chip"></div>
+                                    </div>
+                                    <div class="card-number" id="cardNumberDisplay">**** **** **** ****</div>
+                                    <div class="card-footer">
+                                        <div class="card-holder">
+                                            <div class="card-label">Titular de la tarjeta</div>
+                                            <div class="card-value" id="cardNameDisplay">NOMBRE EN TARJETA</div>
+                                        </div>
+                                        <div class="card-expiry">
+                                            <div class="card-label">Válida hasta</div>
+                                            <div class="card-value" id="cardExpiryDisplay">MM/AA</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="credit-card-back">
+                                    <div class="card-back-stripe"></div>
+                                    <div class="card-cvv-area">
+                                        <div class="card-cvv-label">Código de seguridad</div>
+                                        <div class="card-cvv-value" id="cvvDisplay">***</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <form id="cardPaymentForm">
+                            <div class="form-group">
+                                <label class="form-label" for="cardNumber">
+                                    <i class="fas fa-hashtag"></i> Número de tarjeta
+                                </label>
+                                <div class="input-with-icon">
+                                    <input type="text" class="form-input" id="cardNumber" maxlength="19" placeholder="1234 5678 9012 3456">
+                                    <i class="fas fa-credit-card input-icon"></i>
+                                </div>
+                                <div class="card-brands">
+                                    <div class="card-brand" data-brand="visa"><i class="fab fa-cc-visa"></i></div>
+                                    <div class="card-brand" data-brand="mastercard"><i class="fab fa-cc-mastercard"></i></div>
+                                    <div class="card-brand" data-brand="amex"><i class="fab fa-cc-amex"></i></div>
+                                    <div class="card-brand" data-brand="discover"><i class="fab fa-cc-discover"></i></div>
+                                </div>
+                                <div class="form-hint" id="cardNumberHint">
+                                    <i class="fas fa-info-circle"></i> Ingresa los 16 dígitos de tu tarjeta
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="cardName">
+                                    <i class="fas fa-user"></i> Nombre en la tarjeta
+                                </label>
+                                <input type="text" class="form-input" id="cardName" placeholder="Como aparece en la tarjeta">
+                                <div class="form-hint" id="cardNameHint">
+                                    <i class="fas fa-info-circle"></i> Nombre completo como aparece en la tarjeta
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" for="cardExpiry">
+                                        <i class="fas fa-calendar-alt"></i> Fecha de expiración
+                                    </label>
+                                    <input type="text" class="form-input" id="cardExpiry" maxlength="5" placeholder="MM/AA">
+                                    <div class="form-hint" id="expiryHint">
+                                        <i class="fas fa-info-circle"></i> Mes y año de expiración
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="cardCvv">
+                                        <i class="fas fa-lock"></i> Código de seguridad (CVV)
+                                    </label>
+                                    <div class="input-with-button">
+                                        <input type="text" class="form-input" id="cardCvv" maxlength="4" placeholder="123">
+                                        <button type="button" class="cvv-button" id="flipCardButton" title="Ver reverso de la tarjeta">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                    <div class="form-hint" id="cvvHint">
+                                        <i class="fas fa-info-circle"></i> 3-4 dígitos en el reverso de la tarjeta
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" for="cardCountry">
+                                        <i class="fas fa-globe-americas"></i> País
+                                    </label>
+                                    <select class="form-input" id="cardCountry">
+                                        <option value="">Seleccione su país</option>
+                                        <option value="US" selected>Estados Unidos</option>
+                                        <option value="MX">México</option>
+                                        <option value="ES">España</option>
+                                        <option value="AR">Argentina</option>
+                                        <option value="CO">Colombia</option>
+                                        <option value="CL">Chile</option>
+                                        <option value="PE">Perú</option>
+                                        <option value="BR">Brasil</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="cardZip">
+                                        <i class="fas fa-map-pin"></i> Código postal
+                                    </label>
+                                    <input type="text" class="form-input" id="cardZip" placeholder="12345">
+                                </div>
+                            </div>
+
+                            <div class="save-card-option">
+                                <input type="checkbox" id="saveCard" checked>
+                                <label for="saveCard">Guardar esta tarjeta para futuros pagos (encriptada y segura)</label>
+                            </div>
+
+                            <div class="security-info">
+                                <div class="security-grid">
+                                    <div class="security-item">
+                                        <i class="fas fa-shield-alt security-icon"></i>
+                                        <div class="security-text">
+                                            <strong>Pago 100% seguro</strong><br>
+                                            Encriptación SSL 256-bit
+                                        </div>
+                                    </div>
+                                    <div class="security-item">
+                                        <i class="fas fa-lock security-icon"></i>
+                                        <div class="security-text">
+                                            <strong>Protegido por NASA Security</strong><br>
+                                            Certificación PCI DSS Nivel 1
+                                        </div>
+                                    </div>
+                                    <div class="security-item">
+                                        <i class="fas fa-history security-icon"></i>
+                                        <div class="security-text">
+                                            <strong>Garantía de reembolso</strong><br>
+                                            30 días sin preguntas
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="payment-actions">
+                                <button type="button" class="payment-button secondary-button" id="backButton">
+                                    <i class="fas fa-arrow-left"></i>
+                                    <span>Volver</span>
+                                </button>
+                                <button type="submit" class="payment-button" id="submitPayment">
+                                    <i class="fas fa-rocket"></i>
+                                    <span>PAGAR <span id="paymentAmount">$10.00 USD</span></span>
+                                    <div class="loading-spinner"></div>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- PayPal Tab -->
+                    <div class="tab-content" id="paypal-tab">
+                        <div class="paypal-tab">
+                            <i class="fab fa-paypal paypal-icon"></i>
+                            <h3>Pago con PayPal</h3>
+                            <p>Serás redirigido a la plataforma segura de PayPal para completar tu transacción. Tu suscripción se activará inmediatamente después de confirmar el pago. PayPal es el método de pago más seguro y aceptado a nivel mundial.</p>
+                            <div class="security-info" style="margin-top: 30px;">
+                                <div class="security-item">
+                                    <i class="fas fa-check-circle security-icon"></i>
+                                    <div class="security-text">
+                                        <strong>Protección del Comprador</strong><br>
+                                        Reembolsos completos por productos no recibidos
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="paypal-button" id="paypalButton">
+                                <i class="fab fa-paypal"></i>
+                                Continuar con PayPal
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Crypto Tab -->
+                    <div class="tab-content" id="crypto-tab">
+                        <div class="crypto-tab">
+                            <i class="fas fa-coins crypto-icon"></i>
+                            <h3>Pago con Criptomonedas</h3>
+                            <p>Selecciona tu criptomoneda preferida para realizar el pago. La conversión se realiza al tipo de cambio actual. Una vez confirmada la transacción en la blockchain, tu suscripción se activará automáticamente.</p>
+                            
+                            <div class="crypto-options">
+                                <div class="crypto-option selected" data-coin="bitcoin">
+                                    <i class="fab fa-bitcoin"></i>
+                                    <div class="crypto-name">Bitcoin</div>
+                                    <div class="crypto-symbol">BTC</div>
+                                </div>
+                                <div class="crypto-option" data-coin="ethereum">
+                                    <i class="fab fa-ethereum"></i>
+                                    <div class="crypto-name">Ethereum</div>
+                                    <div class="crypto-symbol">ETH</div>
+                                </div>
+                                <div class="crypto-option" data-coin="litecoin">
+                                    <i class="fas fa-coins"></i>
+                                    <div class="crypto-name">Litecoin</div>
+                                    <div class="crypto-symbol">LTC</div>
+                                </div>
+                                <div class="crypto-option" data-coin="usdt">
+                                    <i class="fas fa-dollar-sign"></i>
+                                    <div class="crypto-name">Tether</div>
+                                    <div class="crypto-symbol">USDT</div>
+                                </div>
+                            </div>
+
+                            <div class="crypto-info" id="cryptoInfo">
+                                <h4>Detalles del pago con <span id="selectedCoinName">Bitcoin</span></h4>
+                                <p>Envía el monto exacto a la dirección proporcionada. La transacción debe confirmarse en la blockchain para activar tu suscripción.</p>
+                                
+                                <div class="crypto-details">
+                                    <div class="crypto-detail">
+                                        <div class="crypto-detail-label">Monto a enviar</div>
+                                        <div class="crypto-detail-value" id="cryptoAmount">0.00025 BTC</div>
+                                    </div>
+                                    <div class="crypto-detail">
+                                        <div class="crypto-detail-label">Equivalente en USD</div>
+                                        <div class="crypto-detail-value">$10.00 USD</div>
+                                    </div>
+                                    <div class="crypto-detail">
+                                        <div class="crypto-detail-label">Dirección de recepción</div>
+                                        <div class="crypto-detail-value" id="cryptoAddress">1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2</div>
+                                    </div>
+                                    <div class="crypto-detail">
+                                        <div class="crypto-detail-label">Tiempo estimado</div>
+                                        <div class="crypto-detail-value">10-30 minutos</div>
+                                    </div>
+                                </div>
+
+                                <div class="crypto-actions">
+                                    <button class="crypto-action-button" id="copyCryptoAddress">
+                                        <i class="fas fa-copy"></i>
+                                        Copiar dirección
+                                    </button>
+                                    <button class="crypto-action-button primary" id="generateNewAddress">
+                                        <i class="fas fa-sync-alt"></i>
+                                        Nueva dirección
+                                    </button>
+                                    <button class="crypto-action-button" id="viewOnExplorer">
+                                        <i class="fas fa-external-link-alt"></i>
+                                        Ver en explorador
+                                    </button>
+                                </div>
+                            </div>
+
+                            <button class="crypto-button" id="cryptoPaymentButton">
+                                <i class="fas fa-check-circle"></i>
+                                He realizado el pago
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Bank Transfer Tab -->
+                    <div class="tab-content" id="bank-tab">
+                        <div class="paypal-tab">
+                            <i class="fas fa-university crypto-icon"></i>
+                            <h3>Transferencia Bancaria</h3>
+                            <p>Realiza una transferencia bancaria utilizando los datos proporcionados. Una vez confirmado el pago por nuestro equipo, tu suscripción se activará manualmente en un plazo de 1-2 días hábiles.</p>
+                            
+                            <div class="crypto-info" style="margin-top: 30px;">
+                                <h4>Datos para transferencia</h4>
+                                
+                                <div class="crypto-details">
+                                    <div class="crypto-detail">
+                                        <div class="crypto-detail-label">Beneficiario</div>
+                                        <div class="crypto-detail-value">NASA VIP ACCESS LLC</div>
+                                    </div>
+                                    <div class="crypto-detail">
+                                        <div class="crypto-detail-label">Banco</div>
+                                        <div class="crypto-detail-value">Global Trust Bank</div>
+                                    </div>
+                                    <div class="crypto-detail">
+                                        <div class="crypto-detail-label">SWIFT/BIC</div>
+                                        <div class="crypto-detail-value">GTBKUS33</div>
+                                    </div>
+                                    <div class="crypto-detail">
+                                        <div class="crypto-detail-label">Número de cuenta</div>
+                                        <div class="crypto-detail-value">US00112233445566778899</div>
+                                    </div>
+                                    <div class="crypto-detail">
+                                        <div class="crypto-detail-label">Monto a transferir</div>
+                                        <div class="crypto-detail-value">$10.00 USD</div>
+                                    </div>
+                                    <div class="crypto-detail">
+                                        <div class="crypto-detail-label">Concepto</div>
+                                        <div class="crypto-detail-value">VIP-<span id="referenceNumber">NASA2024</span></div>
+                                    </div>
+                                </div>
+
+                                <div class="crypto-actions">
+                                    <button class="crypto-action-button" id="copyBankDetails">
+                                        <i class="fas fa-copy"></i>
+                                        Copiar detalles
+                                    </button>
+                                    <button class="crypto-action-button primary" id="confirmBankTransfer">
+                                        <i class="fas fa-check"></i>
+                                        He realizado la transferencia
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="nasa-footer">
+        <div class="container">
+            <div class="payment-methods">
+                <i class="fab fa-cc-visa payment-method"></i>
+                <i class="fab fa-cc-mastercard payment-method"></i>
+                <i class="fab fa-cc-amex payment-method"></i>
+                <i class="fab fa-cc-discover payment-method"></i>
+                <i class="fab fa-cc-paypal payment-method"></i>
+                <i class="fab fa-cc-apple-pay payment-method"></i>
+                <i class="fab fa-google-pay payment-method"></i>
+                <i class="fab fa-bitcoin payment-method"></i>
+            </div>
+            <div class="footer-text">
+                © 2024 NASA VIP Access. Este es un proyecto educativo de demostración.<br>
+                NASA no está afiliada a este sitio. Todas las marcas registradas son propiedad de sus respectivos dueños.
+            </div>
+            <div class="footer-links">
+                <a href="#" class="footer-link">Términos de servicio</a>
+                <a href="#" class="footer-link">Política de privacidad</a>
+                <a href="#" class="footer-link">Garantía de reembolso</a>
+                <a href="#" class="footer-link">Soporte técnico</a>
+                <a href="#" class="footer-link">Contacto</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal">&times;</button>
+            <div class="modal-icon success">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2 class="modal-title">¡Pago Exitoso!</h2>
+            <p class="modal-message">
+                Tu suscripción VIP a la NASA ha sido activada exitosamente.<br>
+                Ahora tienes acceso completo a todos los contenidos exclusivos.
+            </p>
+            
+            <div class="modal-details">
+                <div class="modal-detail">
+                    <span class="modal-detail-label">Número de transacción:</span>
+                    <span class="modal-detail-value" id="transactionId">NASA-2024-001</span>
+                </div>
+                <div class="modal-detail">
+                    <span class="modal-detail-label">Método de pago:</span>
+                    <span class="modal-detail-value" id="paymentMethod">Tarjeta de crédito</span>
+                </div>
+                <div class="modal-detail">
+                    <span class="modal-detail-label">Monto pagado:</span>
+                    <span class="modal-detail-value" id="paidAmount">$10.00 USD</span>
+                </div>
+                <div class="modal-detail">
+                    <span class="modal-detail-label">Fecha de activación:</span>
+                    <span class="modal-detail-value" id="activationDate">Hoy</span>
+                </div>
+                <div class="modal-detail">
+                    <span class="modal-detail-label">Próxima renovación:</span>
+                    <span class="modal-detail-value" id="nextRenewal">En 30 días</span>
+                </div>
+            </div>
+            
+            <div class="modal-actions">
+                <button class="modal-button secondary" id="downloadInvoice">
+                    <i class="fas fa-download"></i>
+                    Descargar factura
+                </button>
+                <button class="modal-button" id="goToVIPDashboard">
+                    <i class="fas fa-rocket"></i>
+                    Ir al Dashboard VIP
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Error Modal -->
+    <div class="modal" id="errorModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeErrorModal">&times;</button>
+            <div class="modal-icon error">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <h2 class="modal-title">Error en el Pago</h2>
+            <p class="modal-message" id="errorMessage">
+                Ha ocurrido un error al procesar tu pago. Por favor, intenta nuevamente.
+            </p>
+            
+            <div class="modal-actions">
+                <button class="modal-button secondary" id="tryOtherMethod">
+                    <i class="fas fa-credit-card"></i>
+                    Intentar con otro método
+                </button>
+                <button class="modal-button" id="retryPayment">
+                    <i class="fas fa-redo"></i>
+                    Reintentar pago
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Processing Modal -->
+    <div class="modal" id="processingModal">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <i class="fas fa-cog fa-spin"></i>
+            </div>
+            <h2 class="modal-title">Procesando Pago</h2>
+            <p class="modal-message">
+                Estamos procesando tu pago. Esto puede tardar unos segundos.<br>
+                Por favor, no cierres esta ventana.
+            </p>
+            
+            <div style="margin: 30px 0;">
+                <div style="height: 6px; background-color: rgba(255, 255, 255, 0.1); border-radius: 3px; overflow: hidden;">
+                    <div id="progressBar" style="width: 0%; height: 100%; background: linear-gradient(to right, var(--nasa-blue), var(--nasa-light-blue)); transition: width 0.3s;"></div>
+                </div>
+                <div style="text-align: center; margin-top: 10px; color: var(--nasa-silver); font-size: 0.9rem;">
+                    <span id="progressText">Verificando información...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize toastr
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": true,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": true,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        };
+
+        // Create stars background
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const starCount = 150;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                
+                // Random position
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                
+                // Random size
+                const size = Math.random() * 3 + 1;
+                
+                // Random animation delay
+                const delay = Math.random() * 5;
+                
+                star.style.left = `${x}%`;
+                star.style.top = `${y}%`;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.animationDelay = `${delay}s`;
+                
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Initialize formatters
+        function initFormatters() {
+            // Card number formatter
+            const cardNumberInput = document.getElementById('cardNumber');
+            const cardNumberFormatter = new Cleave(cardNumberInput, {
+                creditCard: true,
+                onCreditCardTypeChanged: function(type) {
+                    updateCardBrand(type);
+                }
+            });
+
+            // Expiry date formatter
+            const expiryInput = document.getElementById('cardExpiry');
+            new Cleave(expiryInput, {
+                date: true,
+                datePattern: ['m', 'y']
+            });
+
+            // CVV formatter
+            const cvvInput = document.getElementById('cardCvv');
+            new Cleave(cvvInput, {
+                numericOnly: true,
+                blocks: [4]
+            });
+
+            // ZIP code formatter
+            const zipInput = document.getElementById('cardZip');
+            new Cleave(zipInput, {
+                numericOnly: true,
+                blocks: [5]
+            });
+        }
+
+        // Update card brand display
+        function updateCardBrand(type) {
+            const brands = document.querySelectorAll('.card-brand');
+            brands.forEach(brand => brand.classList.remove('active'));
+            
+            if (type === 'visa') {
+                document.querySelector('.card-brand[data-brand="visa"]').classList.add('active');
+            } else if (type === 'mastercard') {
+                document.querySelector('.card-brand[data-brand="mastercard"]').classList.add('active');
+            } else if (type === 'amex') {
+                document.querySelector('.card-brand[data-brand="amex"]').classList.add('active');
+            } else if (type === 'discover') {
+                document.querySelector('.card-brand[data-brand="discover"]').classList.add('active');
+            }
+        }
+
+        // Update card visualization in real-time
+        function updateCardVisualization() {
+            const cardNumberInput = document.getElementById('cardNumber');
+            const cardNameInput = document.getElementById('cardName');
+            const expiryInput = document.getElementById('cardExpiry');
+            const cvvInput = document.getElementById('cardCvv');
+            
+            const cardNumberDisplay = document.getElementById('cardNumberDisplay');
+            const cardNameDisplay = document.getElementById('cardNameDisplay');
+            const expiryDisplay = document.getElementById('cardExpiryDisplay');
+            const cvvDisplay = document.getElementById('cvvDisplay');
+            
+            // Update card number
+            cardNumberInput.addEventListener('input', function() {
+                const value = this.value.replace(/\s/g, '');
+                if (value.length === 0) {
+                    cardNumberDisplay.textContent = '**** **** **** ****';
+                } else {
+                    // Format as XXXX XXXX XXXX XXXX
+                    let formatted = '';
+                    for (let i = 0; i < value.length; i++) {
+                        if (i > 0 && i % 4 === 0) formatted += ' ';
+                        formatted += value[i];
+                    }
+                    // Add remaining stars
+                    const remaining = 16 - value.length;
+                    if (remaining > 0) {
+                        formatted += ' ' + '*'.repeat(Math.min(4, remaining));
+                        if (remaining > 4) {
+                            formatted += ' ' + '*'.repeat(Math.min(4, remaining - 4));
+                        }
+                        if (remaining > 8) {
+                            formatted += ' ' + '*'.repeat(Math.min(4, remaining - 8));
+                        }
+                    }
+                    cardNumberDisplay.textContent = formatted;
+                }
+            });
+            
+            // Update card name
+            cardNameInput.addEventListener('input', function() {
+                cardNameDisplay.textContent = this.value.toUpperCase() || 'NOMBRE EN TARJETA';
+            });
+            
+            // Update expiry date
+            expiryInput.addEventListener('input', function() {
+                expiryDisplay.textContent = this.value || 'MM/AA';
+            });
+            
+            // Update CVV
+            cvvInput.addEventListener('input', function() {
+                const length = this.value.length;
+                cvvDisplay.textContent = '*'.repeat(length) + '*'.repeat(3 - length);
+            });
+        }
+
+        // Tab switching functionality
+        function initTabSwitching() {
+            const tabs = document.querySelectorAll('.payment-tab');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all tabs and contents
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked tab and corresponding content
+                    this.classList.add('active');
+                    document.getElementById(`${tabId}-tab`).classList.add('active');
+                    
+                    // Update progress
+                    updateProgress(2);
+                    
+                    // Show notification
+                    toastr.info(`Método de pago cambiado a: ${this.textContent.trim()}`);
+                });
+            });
+        }
+
+        // Progress steps functionality
+        function initProgressSteps() {
+            const steps = document.querySelectorAll('.step');
+            const progressFill = document.getElementById('progressFill');
+            
+            function updateProgress(stepNumber) {
+                // Update step circles
+                steps.forEach((step, index) => {
+                    if (index < stepNumber) {
+                        step.classList.add('completed');
+                        step.classList.add('active');
+                    } else if (index === stepNumber) {
+                        step.classList.add('active');
+                        step.classList.remove('completed');
+                    } else {
+                        step.classList.remove('active');
+                        step.classList.remove('completed');
+                    }
+                });
+                
+                // Update progress bar
+                const progressPercentage = (stepNumber / 3) * 100;
+                progressFill.style.width = `${progressPercentage}%`;
+            }
+            
+            // Initialize at step 1
+            updateProgress(1);
+        }
+
+        // Currency selector functionality
+        function initCurrencySelector() {
+            const currencyOptions = document.querySelectorAll('.currency-option');
+            const planPrice = document.getElementById('planPrice');
+            const subscriptionAmount = document.getElementById('subscriptionAmount');
+            const totalAmount = document.getElementById('totalAmount');
+            const paymentAmount = document.getElementById('paymentAmount');
+            
+            // Exchange rates (simulated)
+            const exchangeRates = {
+                'USD': 1.00,
+                'EUR': 0.92,
+                'GBP': 0.79,
+                'MXN': 17.50
+            };
+            
+            // Currency symbols
+            const currencySymbols = {
+                'USD': '$',
+                'EUR': '€',
+                'GBP': '£',
+                'MXN': '$'
+            };
+            
+            currencyOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const currency = this.getAttribute('data-currency');
+                    
+                    // Remove active class from all options
+                    currencyOptions.forEach(opt => opt.classList.remove('active'));
+                    
+                    // Add active class to clicked option
+                    this.classList.add('active');
+                    
+                    // Update amounts
+                    const baseAmount = 10.00;
+                    const convertedAmount = baseAmount * exchangeRates[currency];
+                    const symbol = currencySymbols[currency];
+                    
+                    planPrice.textContent = `${symbol}${convertedAmount.toFixed(2)}`;
+                    subscriptionAmount.textContent = `${symbol}${convertedAmount.toFixed(2)} ${currency}`;
+                    totalAmount.textContent = `${symbol}${convertedAmount.toFixed(2)} ${currency}`;
+                    paymentAmount.textContent = `${symbol}${convertedAmount.toFixed(2)} ${currency}`;
+                    
+                    // Show notification
+                    toastr.info(`Moneda cambiada a: ${currency}`);
+                });
+            });
+        }
+
+        // Card flip functionality
+        function initCardFlip() {
+            const flipButton = document.getElementById('flipCardButton');
+            const cardWrapper = document.getElementById('cardWrapper');
+            
+            flipButton.addEventListener('click', function() {
+                cardWrapper.classList.toggle('flipped');
+                
+                // Change icon
+                const icon = this.querySelector('i');
+                if (cardWrapper.classList.contains('flipped')) {
+                    icon.className = 'fas fa-eye-slash';
+                    this.title = "Ver frente de la tarjeta";
+                } else {
+                    icon.className = 'fas fa-eye';
+                    this.title = "Ver reverso de la tarjeta";
+                }
+            });
+            
+            // Auto-flip when focusing on CVV field
+            const cvvInput = document.getElementById('cardCvv');
+            cvvInput.addEventListener('focus', function() {
+                cardWrapper.classList.add('flipped');
+                flipButton.querySelector('i').className = 'fas fa-eye-slash';
+                flipButton.title = "Ver frente de la tarjeta";
+            });
+            
+            cvvInput.addEventListener('blur', function() {
+                cardWrapper.classList.remove('flipped');
+                flipButton.querySelector('i').className = 'fas fa-eye';
+                flipButton.title = "Ver reverso de la tarjeta";
+            });
+        }
+
+        // Crypto functionality
+        function initCryptoFeatures() {
+            const cryptoOptions = document.querySelectorAll('.crypto-option');
+            const selectedCoinName = document.getElementById('selectedCoinName');
+            const cryptoAmount = document.getElementById('cryptoAmount');
+            const cryptoAddress = document.getElementById('cryptoAddress');
+            const copyCryptoButton = document.getElementById('copyCryptoAddress');
+            const generateNewAddressButton = document.getElementById('generateNewAddress');
+            const viewOnExplorerButton = document.getElementById('viewOnExplorer');
+            
+            // Crypto data
+            const cryptoData = {
+                'bitcoin': {
+                    name: 'Bitcoin',
+                    symbol: 'BTC',
+                    amount: '0.00025',
+                    address: '1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2',
+                    explorer: 'https://www.blockchain.com/btc/address/'
+                },
+                'ethereum': {
+                    name: 'Ethereum',
+                    symbol: 'ETH',
+                    amount: '0.0035',
+                    address: '0x32Be343B94f860124dC4fEe278FDCBD38C102D88',
+                    explorer: 'https://etherscan.io/address/'
+                },
+                'litecoin': {
+                    name: 'Litecoin',
+                    symbol: 'LTC',
+                    amount: '0.15',
+                    address: 'LbTjMgn7FQ5h6RAtYjt5PA5Kp2a92o1q1A',
+                    explorer: 'https://blockchair.com/litecoin/address/'
+                },
+                'usdt': {
+                    name: 'Tether',
+                    symbol: 'USDT',
+                    amount: '10.00',
+                    address: '0xdAC17F958D2ee523a2206206994597C13D831ec7',
+                    explorer: 'https://etherscan.io/token/0xdac17f958d2ee523a2206206994597c13d831ec7?a='
+                }
+            };
+            
+            // Handle crypto option selection
+            cryptoOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const coin = this.getAttribute('data-coin');
+                    
+                    // Remove selected class from all options
+                    cryptoOptions.forEach(opt => opt.classList.remove('selected'));
+                    
+                    // Add selected class to clicked option
+                    this.classList.add('selected');
+                    
+                    // Update crypto info
+                    const data = cryptoData[coin];
+                    selectedCoinName.textContent = data.name;
+                    cryptoAmount.textContent = `${data.amount} ${data.symbol}`;
+                    cryptoAddress.textContent = data.address;
+                    
+                    // Update explorer button
+                    viewOnExplorerButton.setAttribute('data-explorer', data.explorer);
+                    viewOnExplorerButton.setAttribute('data-address', data.address);
+                    
+                    // Show notification
+                    toastr.info(`Criptomoneda seleccionada: ${data.name}`);
+                });
+            });
+            
+            // Copy crypto address
+            copyCryptoButton.addEventListener('click', function() {
+                const address = cryptoAddress.textContent;
+                navigator.clipboard.writeText(address)
+                    .then(() => {
+                        toastr.success('Dirección copiada al portapapeles');
+                    })
+                    .catch(err => {
+                        console.error('Error copying address: ', err);
+                        toastr.error('Error al copiar la dirección');
+                    });
+            });
+            
+            // Generate new address
+            generateNewAddressButton.addEventListener('click', function() {
+                // Simulate generating a new address
+                const selectedCoin = document.querySelector('.crypto-option.selected').getAttribute('data-coin');
+                const data = cryptoData[selectedCoin];
+                
+                // Generate a "new" address by slightly modifying the current one
+                const currentAddress = data.address;
+                let newAddress = currentAddress.split('').reverse().join('').substring(0, currentAddress.length);
+                
+                // Update display
+                cryptoAddress.textContent = newAddress;
+                
+                // Update explorer button
+                viewOnExplorerButton.setAttribute('data-address', newAddress);
+                
+                toastr.success('Nueva dirección generada');
+            });
+            
+            // View on explorer
+            viewOnExplorerButton.addEventListener('click', function() {
+                const explorer = this.getAttribute('data-explorer');
+                const address = this.getAttribute('data-address');
+                
+                if (explorer && address) {
+                    window.open(explorer + address, '_blank');
+                }
+            });
+            
+            // Crypto payment button
+            const cryptoPaymentButton = document.getElementById('cryptoPaymentButton');
+            cryptoPaymentButton.addEventListener('click', function() {
+                showProcessingModal('crypto');
+            });
+        }
+
+        // Bank transfer functionality
+        function initBankTransferFeatures() {
+            const copyBankDetailsButton = document.getElementById('copyBankDetails');
+            const confirmBankTransferButton = document.getElementById('confirmBankTransfer');
+            const referenceNumber = document.getElementById('referenceNumber');
+            
+            // Generate reference number
+            function generateReferenceNumber() {
+                const prefix = 'NASA';
+                const year = new Date().getFullYear();
+                const random = Math.floor(Math.random() * 10000).toString().padStart(4, '0');
+                return `${prefix}${year}${random}`;
+            }
+            
+            // Set reference number
+            referenceNumber.textContent = generateReferenceNumber();
+            
+            // Copy bank details
+            copyBankDetailsButton.addEventListener('click', function() {
+                const bankDetails = `
+Beneficiario: NASA VIP ACCESS LLC
+Banco: Global Trust Bank
+SWIFT/BIC: GTBKUS33
+Número de cuenta: US00112233445566778899
+Monto: $10.00 USD
+Concepto: VIP-${referenceNumber.textContent}
+                `.trim();
+                
+                navigator.clipboard.writeText(bankDetails)
+                    .then(() => {
+                        toastr.success('Detalles bancarios copiados');
+                    })
+                    .catch(err => {
+                        console.error('Error copying bank details: ', err);
+                        toastr.error('Error al copiar los detalles');
+                    });
+            });
+            
+            // Confirm bank transfer
+            confirmBankTransferButton.addEventListener('click', function() {
+                showProcessingModal('bank');
+            });
+        }
+
+        // PayPal functionality
+        function initPayPalFeatures() {
+            const paypalButton = document.getElementById('paypalButton');
+            
+            paypalButton.addEventListener('click', function() {
+                showProcessingModal('paypal');
+            });
+        }
+
+        // Form validation
+        function initFormValidation() {
+            const form = document.getElementById('cardPaymentForm');
+            const cardNumberInput = document.getElementById('cardNumber');
+            const cardNameInput = document.getElementById('cardName');
+            const expiryInput = document.getElementById('cardExpiry');
+            const cvvInput = document.getElementById('cardCvv');
+            const countrySelect = document.getElementById('cardCountry');
+            const zipInput = document.getElementById('cardZip');
+            
+            const cardNumberHint = document.getElementById('cardNumberHint');
+            const cardNameHint = document.getElementById('cardNameHint');
+            const expiryHint = document.getElementById('expiryHint');
+            const cvvHint = document.getElementById('cvvHint');
+            
+            // Validation functions
+            function validateCardNumber(value) {
+                const cleaned = value.replace(/\s/g, '');
+                if (cleaned.length !== 16) {
+                    return { valid: false, message: 'El número de tarjeta debe tener 16 dígitos' };
+                }
+                
+                // Luhn algorithm check
+                let sum = 0;
+                let isEven = false;
+                
+                for (let i = cleaned.length - 1; i >= 0; i--) {
+                    let digit = parseInt(cleaned.charAt(i), 10);
+                    
+                    if (isEven) {
+                        digit *= 2;
+                        if (digit > 9) {
+                            digit -= 9;
+                        }
+                    }
+                    
+                    sum += digit;
+                    isEven = !isEven;
+                }
+                
+                if (sum % 10 !== 0) {
+                    return { valid: false, message: 'Número de tarjeta inválido' };
+                }
+                
+                return { valid: true, message: 'Número de tarjeta válido' };
+            }
+            
+            function validateCardName(value) {
+                if (value.length < 3) {
+                    return { valid: false, message: 'El nombre debe tener al menos 3 caracteres' };
+                }
+                
+                if (!/^[a-zA-Z\s]+$/.test(value)) {
+                    return { valid: false, message: 'El nombre solo puede contener letras y espacios' };
+                }
+                
+                return { valid: true, message: 'Nombre válido' };
+            }
+            
+            function validateExpiry(value) {
+                if (!/^\d{2}\/\d{2}$/.test(value)) {
+                    return { valid: false, message: 'Formato inválido (use MM/AA)' };
+                }
+                
+                const [month, year] = value.split('/').map(num => parseInt(num, 10));
+                const currentYear = new Date().getFullYear() % 100;
+                const currentMonth = new Date().getMonth() + 1;
+                
+                if (month < 1 || month > 12) {
+                    return { valid: false, message: 'Mes inválido' };
+                }
+                
+                if (year < currentYear || (year === currentYear && month < currentMonth)) {
+                    return { valid: false, message: 'Tarjeta expirada' };
+                }
+                
+                return { valid: true, message: 'Fecha válida' };
+            }
+            
+            function validateCVV(value) {
+                if (!/^\d{3,4}$/.test(value)) {
+                    return { valid: false, message: 'CVV debe tener 3 o 4 dígitos' };
+                }
+                
+                return { valid: true, message: 'CVV válido' };
+            }
+            
+            function validateZip(value) {
+                if (!value) {
+                    return { valid: false, message: 'Código postal requerido' };
+                }
+                
+                if (!/^\d{5}$/.test(value)) {
+                    return { valid: false, message: 'Código postal inválido (5 dígitos)' };
+                }
+                
+                return { valid: true, message: 'Código postal válido' };
+            }
+            
+            // Real-time validation
+            cardNumberInput.addEventListener('blur', function() {
+                const validation = validateCardNumber(this.value);
+                updateValidationUI(this, cardNumberHint, validation);
+            });
+            
+            cardNameInput.addEventListener('blur', function() {
+                const validation = validateCardName(this.value);
+                updateValidationUI(this, cardNameHint, validation);
+            });
+            
+            expiryInput.addEventListener('blur', function() {
+                const validation = validateExpiry(this.value);
+                updateValidationUI(this, expiryHint, validation);
+            });
+            
+            cvvInput.addEventListener('blur', function() {
+                const validation = validateCVV(this.value);
+                updateValidationUI(this, cvvHint, validation);
+            });
+            
+            zipInput.addEventListener('blur', function() {
+                const validation = validateZip(this.value);
+                updateValidationUI(this, null, validation);
+            });
+            
+            function updateValidationUI(input, hintElement, validation) {
+                if (validation.valid) {
+                    input.classList.remove('error');
+                    input.classList.add('success');
+                    if (hintElement) {
+                        hintElement.classList.remove('error');
+                        hintElement.classList.add('success');
+                        hintElement.innerHTML = `<i class="fas fa-check-circle"></i> ${validation.message}`;
+                    }
+                } else {
+                    input.classList.remove('success');
+                    input.classList.add('error');
+                    if (hintElement) {
+                        hintElement.classList.remove('success');
+                        hintElement.classList.add('error');
+                        hintElement.innerHTML = `<i class="fas fa-exclamation-circle"></i> ${validation.message}`;
+                    }
+                }
+            }
+            
+            // Form submission
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Validate all fields
+                const validations = [
+                    validateCardNumber(cardNumberInput.value),
+                    validateCardName(cardNameInput.value),
+                    validateExpiry(expiryInput.value),
+                    validateCVV(cvvInput.value),
+                    validateZip(zipInput.value)
+                ];
+                
+                const allValid = validations.every(v => v.valid);
+                
+                if (!allValid) {
+                    toastr.error('Por favor, corrige los errores en el formulario');
+                    return;
+                }
+                
+                if (!countrySelect.value) {
+                    toastr.error('Por favor, selecciona un país');
+                    return;
+                }
+                
+                // All valid, process payment
+                showProcessingModal('card');
+            });
+        }
+
+        // Modal functionality
+        function initModalFeatures() {
+            const successModal = document.getElementById('successModal');
+            const errorModal = document.getElementById('errorModal');
+            const processingModal = document.getElementById('processingModal');
+            
+            const closeModalButton = document.getElementById('closeModal');
+            const closeErrorModalButton = document.getElementById('closeErrorModal');
+            const goToVIPDashboardButton = document.getElementById('goToVIPDashboard');
+            const downloadInvoiceButton = document.getElementById('downloadInvoice');
+            const tryOtherMethodButton = document.getElementById('tryOtherMethod');
+            const retryPaymentButton = document.getElementById('retryPayment');
+            const backButton = document.getElementById('backButton');
+            
+            // Close modals
+            closeModalButton.addEventListener('click', () => successModal.classList.remove('active'));
+            closeErrorModalButton.addEventListener('click', () => errorModal.classList.remove('active'));
+            
+            // Go to VIP dashboard
+            goToVIPDashboardButton.addEventListener('click', () => {
+                successModal.classList.remove('active');
+                toastr.success('Redirigiendo al dashboard VIP...');
+                // In a real app: window.location.href = 'dashboard-vip.html';
+            });
+            
+            // Download invoice
+            downloadInvoiceButton.addEventListener('click', () => {
+                toastr.info('Generando factura... (simulación)');
+                // In a real app: generate and download invoice PDF
+            });
+            
+            // Try other payment method
+            tryOtherMethodButton.addEventListener('click', () => {
+                errorModal.classList.remove('active');
+                toastr.info('Selecciona otro método de pago');
+            });
+            
+            // Retry payment
+            retryPaymentButton.addEventListener('click', () => {
+                errorModal.classList.remove('active');
+                showProcessingModal('card');
+            });
+            
+            // Back button
+            backButton.addEventListener('click', () => {
+                toastr.info('Volviendo al paso anterior');
+                // In a real app: navigate back
+            });
+            
+            // Close modals when clicking outside
+            window.addEventListener('click', (e) => {
+                if (e.target === successModal) successModal.classList.remove('active');
+                if (e.target === errorModal) errorModal.classList.remove('active');
+                if (e.target === processingModal) processingModal.classList.remove('active');
+            });
+            
+            // Escape key to close modals
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    successModal.classList.remove('active');
+                    errorModal.classList.remove('active');
+                    processingModal.classList.remove('active');
+                }
+            });
+        }
+
+        // Show processing modal
+        function showProcessingModal(paymentMethod) {
+            const processingModal = document.getElementById('processingModal');
+            const progressBar = document.getElementById('progressBar');
+            const progressText = document.getElementById('progressText');
+            
+            processingModal.classList.add('active');
+            
+            // Simulate payment processing
+            let progress = 0;
+            const steps = [
+                'Verificando información...',
+                'Validando método de pago...',
+                'Procesando transacción...',
+                'Confirmando pago...',
+                'Activando suscripción...'
+            ];
+            
+            const interval = setInterval(() => {
+                progress += 20;
+                progressBar.style.width = `${progress}%`;
+                
+                const stepIndex = Math.floor(progress / 20);
+                if (stepIndex < steps.length) {
+                    progressText.textContent = steps[stepIndex];
+                }
+                
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    
+                    // Simulate random success/failure
+                    const success = Math.random() > 0.2; // 80% success rate
+                    
+                    setTimeout(() => {
+                        processingModal.classList.remove('active');
+                        
+                        if (success) {
+                            showSuccessModal(paymentMethod);
+                        } else {
+                            showErrorModal('La transacción fue rechazada por el banco emisor');
+                        }
+                    }, 500);
+                }
+            }, 800);
+        }
+
+        // Show success modal
+        function showSuccessModal(paymentMethod) {
+            const successModal = document.getElementById('successModal');
+            const transactionId = document.getElementById('transactionId');
+            const paymentMethodDisplay = document.getElementById('paymentMethod');
+            const paidAmount = document.getElementById('paidAmount');
+            const activationDate = document.getElementById('activationDate');
+            const nextRenewal = document.getElementById('nextRenewal');
+            
+            // Set modal content
+            const methodNames = {
+                'card': 'Tarjeta de crédito',
+                'paypal': 'PayPal',
+                'crypto': 'Criptomoneda',
+                'bank': 'Transferencia bancaria'
+            };
+            
+            const now = new Date();
+            const nextMonth = new Date(now);
+            nextMonth.setMonth(nextMonth.getMonth() + 1);
+            
+            transactionId.textContent = `NASA-${now.getFullYear()}-${Math.floor(Math.random() * 1000).toString().padStart(3, '0')}`;
+            paymentMethodDisplay.textContent = methodNames[paymentMethod] || 'Método de pago';
+            paidAmount.textContent = document.getElementById('paymentAmount').textContent;
+            activationDate.textContent = now.toLocaleDateString('es-ES');
+            nextRenewal.textContent = nextMonth.toLocaleDateString('es-ES');
+            
+            // Update user status
+            const userStatus = document.querySelector('.user-status');
+            userStatus.textContent = 'Cuenta VIP NASA • Activa';
+            userStatus.classList.add('vip');
+            
+            // Update progress
+            updateProgress(3);
+            
+            // Show modal
+            successModal.classList.add('active');
+            
+            // Show success notification
+            toastr.success('¡Suscripción activada exitosamente!');
+        }
+
+        // Show error modal
+        function showErrorModal(message) {
+            const errorModal = document.getElementById('errorModal');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            errorMessage.textContent = message;
+            errorModal.classList.add('active');
+            
+            // Show error notification
+            toastr.error(message);
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create stars background
+            createStars();
+            
+            // Initialize formatters
+            initFormatters();
+            
+            // Update card visualization
+            updateCardVisualization();
+            
+            // Initialize tab switching
+            initTabSwitching();
+            
+            // Initialize progress steps
+            initProgressSteps();
+            
+            // Initialize currency selector
+            initCurrencySelector();
+            
+            // Initialize card flip
+            initCardFlip();
+            
+            // Initialize crypto features
+            initCryptoFeatures();
+            
+            // Initialize bank transfer features
+            initBankTransferFeatures();
+            
+            // Initialize PayPal features
+            initPayPalFeatures();
+            
+            // Initialize form validation
+            initFormValidation();
+            
+            // Initialize modal features
+            initModalFeatures();
+            
+            // Go to dashboard
+            document.getElementById('goToDashboard').addEventListener('click', function() {
+                toastr.info('Redirigiendo al dashboard...');
+                // In a real app: window.location.href = 'dashboard.html';
+            });
+            
+            // User menu
+            document.getElementById('userMenu').addEventListener('click', function() {
+                toastr.info('Menú de usuario (simulación)');
+            });
+            
+            // Show welcome notification
+            setTimeout(() => {
+                toastr.info('Bienvenido al sistema de pago VIP NASA. Selecciona tu método de pago preferido.');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

@@ -1,7 +1,4 @@
-const supabaseUrl = "https://zdcgxmtyszgvpmcsftpd.supabase.co";
-const supabaseKey = "sb_publishable_qYQfbjul-XHU7jDhM44IsQ_Rj3GnhMk";
+const SUPABASE_URL = 'https://tu-proyecto.supabase.co';
+const SUPABASE_ANON_KEY = 'tu-anon-key';
 
-const supabaseClient = supabase.createClient(
-  supabaseUrl,
-  supabaseKey
-);
+const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);

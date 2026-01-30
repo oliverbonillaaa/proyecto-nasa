@@ -29,23 +29,23 @@
 </div>
 
 
-     <a href="index.html" class="brand-logo-link">
+     <a href="/index.html" class="brand-logo-link">
   <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/NASA_logo.svg" class="brand-logo" alt="NASA">
 </a>
 
 
     <div class="header-right">
   <nav class="main-nav">
-    <a href="missiones.html">Misiones</a>
+    <a href="../template/missiones.html">Misiones</a>
     
-    <a href="tecnologia.html">Tecnología</a>
+    <a href="../template/tecnologia.html">Tecnología</a>
     <a href="#">NASA TV</a>
     <a href="#">Noticias</a>
 
   
 
   <!-- BOTÓN LOGIN / REGISTRO -->
-  <a href="logininiciodesesion.html" class="login-btn">
+  <a href="../template/logininiciodesesion.html" class="login-btn">
     <i class="fas fa-user-astronaut"></i>
     Acceder
   </a>
@@ -219,6 +219,115 @@ además de ampliar el conocimiento sobre cómo funciona el universo y cómo los 
     <p id="modal-text"></p>
   </div>
 </div>
+
+<section class="mission-progress">
+  <h2>🚀 Misión en Progreso</h2>
+  <p id="missionStatus">Preparando lanzamiento...</p>
+
+  <div class="progress-container">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <span id="progressPercent">0%</span>
+</section>
+
+<div class="mission-grid">
+
+  <div class="mission-card"
+  onclick="openMission(
+  'Artemis I',
+  'Exploración lunar avanzada y preparación para misiones tripuladas.'
+  )">
+    <h3>🟡 Artemis I</h3>
+    <p>Exploración lunar avanzada</p>
+  </div>
+
+  <div class="mission-card"
+  onclick="openMission(
+  'Voyager X',
+  'Exploración del espacio profundo más allá del sistema solar.'
+  )">
+    <h3>🛰️ Voyager X</h3>
+    <p>Exploración del espacio profundo</p>
+  </div>
+
+  <div class="mission-card"
+  onclick="openMission(
+  'Mars Nova',
+  'Colonización inteligente y autosustentable de Marte.'
+  )">
+    <h3>🔴 Mars Nova</h3>
+    <p>Colonización inteligente</p>
+  </div>
+
+</div>
+
+
+<section class="space-section">
+
+  <h2 class="space-title">🌌 Exploración Avanzada</h2>
+  <p class="space-subtitle">Tecnología, imágenes y sistemas del futuro</p>
+
+  <!-- GALERÍA -->
+  <div class="gallery-grid">
+    <div class="img-card"><img src="../img/tierra.png"></div>
+    <div class="img-card"><img src="../img/saturno.png"></div>
+    <div class="img-card"><img src="../img/marte.png"></div>
+  </div>
+
+  <!-- CARDS -->
+  <div class="tech-cards">
+    <div class="tech-card">
+      <h3>🧠 IA Autónoma</h3>
+      <p>Control inteligente sin intervención humana</p>
+    </div>
+
+    <div class="tech-card">
+      <h3>⚡ Energía Cuántica</h3>
+      <p>Alimentación ilimitada para misiones largas</p>
+    </div>
+
+    <div class="tech-card">
+      <h3>🛰️ Navegación Interestelar</h3>
+      <p>Viajes más allá del sistema solar</p>
+    </div>
+  </div>
+
+</section>
+
+<section class="secret-panel hidden" id="secretPanel">
+  <h2>🔐 Información Clasificada</h2>
+  <p id="secretText">Acceso restringido</p>
+
+  <div class="secret-access">
+    <input type="password" id="secretCode" placeholder="Ingrese clave" />
+    <button onclick="checkSecret()">Acceder</button>
+  </div>
+</section>
+
+
+<section class="classified-extra" id="classifiedExtra">
+  <h3>🛰️ Nivel Alpha Desbloqueado</h3>
+  <ul>
+    <li>📡 Ubicación: Sector Kepler-452</li>
+    <li>🧠 IA Central: ORION-AI v4.6</li>
+    <li>⚡ Fuente de energía: Núcleo cuántico experimental</li>
+    <li>📅 Lanzamiento estimado: 2031</li>
+    <li>👨‍🚀 Tripulación: No tripulada (fase inicial)</li>
+  </ul>
+</section>
+
+<div class="mission-modal" id="missionModal">
+  <div class="mission-modal-content">
+    <span class="close-btn" onclick="closeMission()">✖</span>
+    <h2 id="modalTitle"></h2>
+    <p id="modalDesc"></p>
+  </div>
+</div>
+
+
+
+<div class="parallax"></div>
 
 
 <!-- ================= FOOTER ================= -->

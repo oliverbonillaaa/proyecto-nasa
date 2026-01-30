@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASA - Verificar Email</title>
+    <link rel="stylesheet" href="../css/verificar-email.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="verification-container">
+        <div class="verification-header">
+            <div class="verification-logo">
+                <i class="fas fa-rocket"></i>
+                <h1>VERIFICACIÓN DE <span>EMAIL</span></h1>
+            </div>
+            <p class="verification-subtitle">
+                Un paso más para acceder al universo de la NASA
+            </p>
+        </div>
+
+        <div class="verification-card">
+            <div class="verification-icon">
+                <i class="fas fa-envelope-open-text"></i>
+            </div>
+            
+            <h2>Revisa tu bandeja de entrada</h2>
+            <p class="verification-message">
+                Hemos enviado un código de verificación de 6 dígitos a:<br>
+                <span class="user-email" id="userEmail">usuario@ejemplo.com</span>
+            </p>
+
+            <div class="verification-code-container">
+                <h3>Ingresa el código de verificación:</h3>
+                <div class="code-inputs">
+                    <input type="text" maxlength="1" class="code-input" data-index="0">
+                    <input type="text" maxlength="1" class="code-input" data-index="1">
+                    <input type="text" maxlength="1" class="code-input" data-index="2">
+                    <input type="text" maxlength="1" class="code-input" data-index="3">
+                    <input type="text" maxlength="1" class="code-input" data-index="4">
+                    <input type="text" maxlength="1" class="code-input" data-index="5">
+                </div>
+                <div class="verification-error" id="verificationError"></div>
+            </div>
+
+            <div class="verification-timer">
+                <i class="fas fa-clock"></i>
+                <span>El código expira en: </span>
+                <span id="countdown">10:00</span>
+            </div>
+
+            <div class="verification-actions">
+                <button class="verify-button" onclick="verifyCode()">
+                    <i class="fas fa-check-circle"></i> Verificar Código
+                </button>
+                <button class="resend-button" onclick="resendCode()" id="resendButton">
+                    <i class="fas fa-redo"></i> Reenviar Código
+                </button>
+            </div>
+
+            <div class="email-tips">
+                <h4><i class="fas fa-lightbulb"></i> Consejos:</h4>
+                <ul>
+                    <li>Revisa tu carpeta de spam si no encuentras el email</li>
+                    <li>El código es válido por 10 minutos</li>
+                    <li>Asegúrate de ingresar el código correctamente</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="verification-status">
+            <div class="status-step active">
+                <div class="step-number">1</div>
+                <div class="step-info">
+                    <h4>Registro Completo</h4>
+                    <p>Cuenta creada exitosamente</p>
+                </div>
+            </div>
+            <div class="status-step active">
+                <div class="step-number">2</div>
+                <div class="step-info">
+                    <h4>Email Enviado</h4>
+                    <p>Código de verificación enviado</p>
+                </div>
+            </div>
+            <div class="status-step">
+                <div class="step-number">3</div>
+                <div class="step-info">
+                    <h4>Verificación</h4>
+                    <p>Validando tu identidad</p>
+                </div>
+            </div>
+            <div class="status-step">
+                <div class="step-number">4</div>
+                <div class="step-info">
+                    <h4>¡Listo!</h4>
+                    <p>Acceso al contenido NASA</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de verificación exitosa -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="confetti"></div>
+            <div class="modal-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>¡Email Verificado!</h2>
+            <p>Tu dirección de correo ha sido verificada exitosamente.</p>
+            <div class="plan-badge" id="verifiedPlanBadge">
+                <i class="fas fa-crown"></i>
+                <span>Plan VIP Activado</span>
+            </div>
+            <p class="modal-message">
+                Ahora tienes acceso completo al contenido exclusivo de la NASA.<br>
+                Redirigiendo al panel de control...
+            </p>
+            <div class="loader"></div>
+        </div>
+    </div>
+
+    <script src="../js/verificar-email.js"></script>
+</body>
+</html>

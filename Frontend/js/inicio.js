@@ -40,3 +40,25 @@ document.getElementById('openModal').onclick = () => modal.style.display = 'bloc
 document.getElementById('closeModal').onclick = () => modal.style.display = 'none';
 
 
+document.addEventListener('DOMContentLoaded', function() {
+  const modal = document.getElementById('modalPlanes');
+  const btnInscribete = document.querySelector('.btn-inscribete'); // Asegúrate de que el botón tenga esta clase
+  const spanClose = document.querySelector('.close');
+
+  // Al hacer clic en Inscríbete, mostrar el modal
+  btnInscribete.onclick = function() {
+    modal.style.display = 'block';
+  }
+
+  // Al hacer clic en la X, cerrar el modal
+  spanClose.onclick = function() {
+    modal.style.display = 'none';
+  }
+
+  // Si el usuario hace clic fuera del contenido del modal, cerrarlo
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = 'none';
+    }
+  }
+});
